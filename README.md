@@ -1,4 +1,27 @@
-# Create React Express App
+# Budget App (Name Pending)
+
+## Purpose
+
+## Sitemap
+- Login
+- Home
+- My Budget
+- Upcoming Bills
+
+
+## Technologies/Libraries Used
+- MERN Stack (MongoDB, Express, React, Node.js)
+- Materialize CSS library
+- React-Calendar NPM package
+
+## Team
+- Roy Davis
+- Elliott Dodge
+    - Project Management
+    - README
+
+
+<!-- # Create React Express App
 
 ## About This Boilerplate
 
@@ -26,4 +49,4 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 
 ## Deployment (Heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest. -->
