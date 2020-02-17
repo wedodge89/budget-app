@@ -28,6 +28,12 @@ const Navbar = props => {
                     </li>
 
                     <li className="nav-item">
+                        <Link to="/budgetform" className={window.location.pathname === "/budgetform" ? "nav-link active" : "nav-link"}>
+                            Build Budget
+                        </Link>
+                    </li>
+
+                    <li className="nav-item">
                         <Link to="/bills" className={window.location.pathname === "/bills" ? "nav-link active" : "nav-link"}>
                             Upcoming Bills
                         </Link>

@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Budget from "./pages/MyBudget";
 import Bills from "./pages/UpcomingBill";
+import BudgetForm from "./pages/BudgetForm";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/budget" component={Budget} />
             <Route exact path="/bills" component={Bills} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/budgetform" component={BudgetForm} />
           </Wrapper>
         </div>
 
