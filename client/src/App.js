@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import Register from "./pages/Register";
 import Budget from "./pages/MyBudget";
 import Bills from "./pages/UpcomingBill";
 import BudgetForm from "./pages/BudgetForm";
@@ -21,7 +21,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/budget" component={Budget} />
             <Route exact path="/bills" component={Bills} />
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/register" component={Register} />
             <Route exact path="/budgetform" component={BudgetForm} />
           </Wrapper>
         </div>
