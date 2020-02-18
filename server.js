@@ -3,6 +3,14 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+//Passport
+require("dotenv").config();
+const session = require("express-session");
+const passport = require("./config/passport");
+app.use(session({ secret: process.env.PASSPORT_SECRET, resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
