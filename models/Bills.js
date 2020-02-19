@@ -14,6 +14,10 @@ const BillSchema = new Schema({
     paid: {
         type: Boolean,
         default: false
+    },
+    date: {
+        type: Date,
+        required: true
     }
 });
 

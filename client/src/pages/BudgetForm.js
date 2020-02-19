@@ -37,6 +37,7 @@ class BudgetForm extends Component {
               misc: this.state.misc
           }).then( res => {
               console.log(res);
+            
               
           })
       }

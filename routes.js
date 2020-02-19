@@ -51,7 +51,7 @@ router.post("/api/budgetform", function (req, res) {
       res.json(budget)
     }
   );
-});
+})
 
 router.get("/api/logout", function (req, res) {
   req.logout();
