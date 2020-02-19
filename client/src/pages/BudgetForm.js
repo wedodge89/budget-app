@@ -26,7 +26,7 @@ class BudgetForm extends Component {
 
       submit = (event) => {
           event.preventDefault();
-          axios.post("/budgetform", {
+          axios({
               total: this.state.total,
               rent: this.state.rent,
               car: this.state.car,
