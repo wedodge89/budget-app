@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("./models");
 var isAuthenticated = require("./config/middleware/isAuthenticated");
 
-router.post("/api/register", function(req, res) {
+router.post("/api/register", function (req, res) {
   console.log("registering user");
 
   //Do password validation here before attempting to register user, such as checking for password length, captial letters, special characters, etc.
@@ -12,27 +12,27 @@ router.post("/api/register", function(req, res) {
   db.User.register(
     new db.User({ username: req.body.username, email: req.body.email }),
     req.body.password,
-    function(err, user) {
+    function (err, user) {
       if (err) {
         console.log(err);
         return res.json(err);
       }
-      passport.authenticate("local")(req, res, function(data) {
+      passport.authenticate("local")(req, res, function (data) {
         res.json(req.user);
       });
     }
   );
 });
 
-router.post("/api/login", function(req, res, next) {
-  passport.authenticate("local", function(err, user, info) {
+router.post("/api/login", function (req, res, next) {
+  passport.authenticate("local", function (err, user, info) {
     if (err) {
       return next(err);
     }
     if (!user) {
       return res.json(info);
     }
-    req.logIn(user, function(err) {
+    req.logIn(user, function (err) {
       if (err) {
         return next(err);
       }
@@ -40,22 +40,25 @@ router.post("/api/login", function(req, res, next) {
     });
   })(req, res, next);
 });
-router.post("/api/budgetform", function(req, res){
-  db.Budget.create(req.body)
-    .then(function(dbBudget){
-      res.json(dbBudget);
-    })
-    .catch(function(err){
-      res.json(err)
-    });
+router.post("/api/budgetform", function (req, res) {
+  db.Budget.create(
+    new db.Budget({ total: req.body.total, rent: req.body.rent, car: req.body.car, utility: req.body.utility, food: req.body.food, school: req.body.school, misc: req.body.misc }),
+    function(err, budget) {
+      if(err) {
+        console.log(err);
+        return res.json(err);
+      }
+      res.json(budget)
+    }
+  );
 });
 
-router.get("/api/logout", function(req, res) {
+router.get("/api/logout", function (req, res) {
   req.logout();
   res.json({ message: "logged out" });
 });
 
-router.get("/api/user", function(req, res) {
+router.get("/api/user", function (req, res) {
   console.log("available username");
   if (req.query.username) {
     db.User.find({ username: req.query.username })
@@ -68,8 +71,8 @@ router.get("/api/user", function(req, res) {
   }
 });
 
-router.get("/api/authorized", isAuthenticated, function(req, res) {
-    console.log("working")
+router.get("/api/authorized", isAuthenticated, function (req, res) {
+  console.log("working")
   res.json(req.user);
 });
 
