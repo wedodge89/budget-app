@@ -4,31 +4,31 @@ const Schema = mongoose.Schema;
 
 const BudgetSchema = new Schema({
     total: {
-        type: Interger,
+        type: Number,
         required: true
     },
     rent: {
-        type: Interger,
+        type: Number,
         required: false
     },
     car: {
-        type: Interger,
+        type: Number,
         required: false,
     },
     utility: {
-        type: Interger,
+        type: Number,
         required: false
     },
     food: {
-        type: Interger,
+        type: Number,
         required: false
     },
     school: {
-        type: Interger,
+        type: Number,
         required: false
     },
     misc: {
-        type: Interger,
+        type: Number,
         required: false
     },
 
