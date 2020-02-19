@@ -3,8 +3,9 @@ import Container from "../components/Container/Container";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import { FormGroup, Input, Label, FormBtn } from "../components/Form/Form";
+import API from "../utils/API";
 
-const axios = require("axios")
+
 class BudgetForm extends Component {
 
     state = {
@@ -26,7 +27,7 @@ class BudgetForm extends Component {
 
       submit = (event) => {
           event.preventDefault();
-          axios({
+          API.submit({
               total: this.state.total,
               rent: this.state.rent,
               car: this.state.car,
@@ -34,8 +35,9 @@ class BudgetForm extends Component {
               food: this.state.food,
               school: this.state.school,
               misc: this.state.misc
-          }).then(function(data){
-              console.log(data);
+          }).then( res => {
+              console.log(res);
+              
           })
       }
 
