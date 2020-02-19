@@ -8,7 +8,7 @@ const BillSchema = new Schema({
         required: true
     },
     amount: {
-        type: Interger,
+        type: Number,
         required: true,
     },
     paid: {

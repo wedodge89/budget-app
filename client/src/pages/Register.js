@@ -57,6 +57,7 @@ class Register extends Component {
   };
 
   register = event => {
+    console.log("pressed button")
     event.preventDefault();
     API.register({
       username: this.state.username.toLowerCase(),

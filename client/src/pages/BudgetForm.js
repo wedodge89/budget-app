@@ -1,10 +1,45 @@
-import React from "react";
+import React, {Component} from "react";
 import Container from "../components/Container/Container";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
+import { FormGroup, Input, Label, FormBtn } from "../components/Form/Form";
 
+const axios = require("axios")
+class BudgetForm extends Component {
 
-const BudgetForm = props => {
+    state = {
+        total: 0,
+        rent: 0,
+        car: 0,
+        utility: 0,
+        food: 0,
+        school: 0,
+        misc: 0
+    };
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+        
+      };
+
+      submit = (event) => {
+          event.preventDefault();
+          axios({
+              total: this.state.total,
+              rent: this.state.rent,
+              car: this.state.car,
+              utility: this.state.utility,
+              food: this.state.food,
+              school: this.state.school,
+              misc: this.state.misc
+          }).then(function(data){
+              console.log(data);
+          })
+      }
+
+    render(){
     return (
         <div>
             <Container>
@@ -17,46 +52,84 @@ const BudgetForm = props => {
                 <Row>
                     <Col size="md-12">
                         <form>
-                            <div className="form-group">
-                                <label for="totalBudget">Total Monthly Budget </label>
-                                <input type="text" className="form-control" id="monthBudget" placeholder="Enter your total Montly Budget here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label text="Monthly Total" />
+                                <Input type="text" 
+                                name="total" 
+                                value={this.state.total}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="monthBudget" 
+                                placeholder="Enter your total Montly Budget here." />
+                            </FormGroup>
 
-                            <div className="form-group">
-                                <label for="rentBudget">Rent/Mortgage </label>
-                                <input type="text" className="form-control" id="rent" placeholder="Enter your total for Rent here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label  text="Rent"/>
+                                <Input type="text"
+                                name="rent" 
+                                value={this.state.rent}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="rent" 
+                                placeholder="Enter your total for Rent here." />
+                            </FormGroup>
 
-                            <div className="form-group">
-                                <label for="carBudget">Car Payments/Insurance </label>
-                                <input type="text" className="form-control" id="car" placeholder="Enter your total for Car payments/insurance here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label  text="Car Payments/Insurance"/>
+                                <Input type="text"
+                                name="car" 
+                                value={this.state.car}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="car" 
+                                placeholder="Enter your total for Car payments/insurance here." />
+                            </FormGroup>
 
-                            <div className="form-group">
-                                <label for="utilityBudget">Utilities </label>
-                                <input type="text" className="form-control" id="utilities" placeholder="Enter your total for Utilities here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label  text="Utilities"/>
+                                <Input type="text"
+                                name="utility" 
+                                value={this.state.utility}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="utilities" 
+                                placeholder="Enter your total for Utilities here." />
+                            </FormGroup>
 
-                            <div className="form-group">
-                                <label for="foodBudget">Food/Gas </label>
-                                <input type="text" className="form-control" id="food" placeholder="Enter your total for Food and Gas here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label  text="Food/Gas"/>
+                                <Input type="text"
+                                name="food" 
+                                value={this.state.food}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="food" 
+                                placeholder="Enter your total for Food and Gas here." />
+                            </FormGroup>
 
-                            <div className="form-group">
-                                <label for="schoolBudget">Tuition/School Loans </label>
-                                <input type="text" className="form-control" id="school" placeholder="Enter your total for Tuitions/School loans here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label  text="Tuition/School loans"/>
+                                <Input type="text"
+                                name="school" 
+                                value={this.state.school}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="school" 
+                                placeholder="Enter your total for Tuitions/School loans here." />
+                            </FormGroup>
 
-                            <div className="form-group">
-                                <label for="miscBudget">Total Monthly Budget </label>
-                                <input type="text" className="form-control" id="misc" placeholder="Enter your total for Miscellaneous here."></input>
-                            </div>
+                            <FormGroup>
+                                <Label  text="Miscellaneous"/>
+                                <Input type="text"
+                                name="misc" 
+                                value={this.state.misc}
+                                onChange={this.handleInputChange} 
+                                className="form-control" id="misc" 
+                                placeholder="Enter your total for Miscellaneous here." />
+                            </FormGroup>
+
+                            <FormBtn text="Submit" onClick={this.submit} classes="btn-primary"/>
                         </form>
                     </Col>
                 </Row>
             </Container>
         </div>
             )
+    }
 }
 
 export default BudgetForm;
