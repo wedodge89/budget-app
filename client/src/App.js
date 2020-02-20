@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Wrapper from "./components/Wrapper/Wrapper";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Budget from "./pages/MyBudget";
-import Bills from "./pages/UpcomingBill";
+import Bills from "./pages/MyBills";
 import BudgetForm from "./pages/BudgetForm";
+import BillsForm from "./pages/BillsForm";
 import API from "./utils/API";
 
 class App extends Component {
@@ -90,6 +90,13 @@ class App extends Component {
             <Route exact path="/budgetform">
               {this.state.authorized ? (
                 <BudgetForm /> 
+              ) : (
+                <Redirect to="/login" />
+              )}
+              </Route>
+              <Route exact path="/billsform">
+              {this.state.authorized ? (
+                <BillsForm /> 
               ) : (
                 <Redirect to="/login" />
               )}

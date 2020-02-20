@@ -33,10 +33,15 @@ const Navbar = props => {
                             Build Budget
                         </Link>
                     </li>
+                    <li className="nav-item">
+                        <Link to="/billsform" className={window.location.pathname === "/billsform" ? "nav-link active" : "nav-link"}>
+                            Add Bills
+                        </Link>
+                    </li>
 
                     <li className="nav-item">
                         <Link to="/bills" className={window.location.pathname === "/bills" ? "nav-link active" : "nav-link"}>
-                            Upcoming Bills
+                            My Bills
                         </Link>
                     </li>
                 </ul>
