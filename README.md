@@ -1,6 +1,7 @@
-# Budget App (Name Pending)
+# Ca$h Money
 
 ## Purpose
+Full-stack application where users can create a budget, track spending, and plan for upcoming bills.
 
 ## Sitemap
 - Login
@@ -16,8 +17,11 @@
 
 ## Team
 - Roy Davis
+    - React Components
+    - APIs
 - Elliott Dodge
     - Project Management
+    - CSS
     - README
 
 
