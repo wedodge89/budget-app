@@ -40,7 +40,6 @@ router.post("/api/login", function (req, res, next) {
     });
   })(req, res, next);
 });
-
 router.post("/api/budgetform", function (req, res) {
   db.Budget.create({ total: req.body.total, rent: req.body.rent, car: req.body.car, utility: req.body.utility, food: req.body.food, school: req.body.school, misc: req.body.misc })
     .then(function(dbBudget) {
@@ -91,6 +90,17 @@ router.get("/api/user", function (req, res) {
 router.get("/api/authorized", isAuthenticated, function (req, res) {
   console.log("working")
   res.json(req.user);
+});
+
+router.get("/api/bills", function(req, res){
+  db.User.findOne({user: db.User._id})
+  .populate("bills")
+  .then(function(dbUser){
+    res.json(dbUser);
+  })
+  .catch(function(err){
+    res.json(err);
+  });
 });
 
 module.exports = router;
