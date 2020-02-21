@@ -39,8 +39,8 @@ class BudgetForm extends Component {
               console.log(res);
             
               
-          })
-      }
+          });
+      };
 
     render(){
     return (

@@ -10,6 +10,9 @@ export default {
   submit: function (user) {
     return axios.post("/api/budgetform", user);
   },
+  billSubmit: function (user) {
+    return axios.post("/api/billsform", user)
+  },
   isAuthorized: function () {
     return axios.get("/api/authorized");
   },
