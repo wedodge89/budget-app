@@ -11,6 +11,10 @@ state = {
     date: ""
 };
 
+componentDidMount() {
+this.getMyBills();
+}
+
 handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -19,6 +23,17 @@ handleInputChange = event => {
     
   };
 
+  getMyBills = () => {
+      API.getBills()
+      .then(res => 
+          this.setState({
+              name: res.data.name,
+              amount: res.data.amount,
+              date: res.data.date
+          })
+      )
+      .catch(err => console.log(err));
+  };
 
   render(){
       return(

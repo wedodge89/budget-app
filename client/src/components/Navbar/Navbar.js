@@ -8,14 +8,14 @@ const Navbar = props => {
             <Link className="navbar-brand" to="/">
                 Home
             </Link>
-            <button class="navbar-toggler" type="button"
+            <button className="navbar-toggler" type="button"
             data-toggle="collapse"
             data-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false"
             aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span className="navbar-toggler-icon"></span>
   </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+            <div className="collapse navbar-collapse justify-content-end" id="navbarToggler">
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link to="/login" className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}>

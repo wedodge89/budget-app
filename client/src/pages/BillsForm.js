@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from "../components/Container/Container";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
-import { FormGroup, Input, Label, FormBtn } from "../components/Form/Form";
+import { FormGroup, Input, Label, FormBtn, } from "../components/Form/Form";
 import API from "../utils/API";
 
 class BillsForm extends Component {
@@ -10,6 +10,7 @@ class BillsForm extends Component {
 state= {
     name: "",
     amount: 0,
+    category: "",
     date: ""
 };
 
@@ -21,13 +22,14 @@ state= {
         this.setState({
             [name]: value
         });
-
+        console.log(this.state)
     };
     billSubmit = (event) => {
         event.preventDefault();
         API.billSubmit({
             name: this.state.name,
             amount: this.state.amount,
+            category: this.state.category,
             date: this.state.date
             
             
@@ -69,6 +71,18 @@ state= {
                                     onChange={this.handleInputChange}
                                     className="form-control" id="amount"
                                     placeholder="Enter the bill amount" />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label text="Category" />
+                                <select className="form-control" name="category" value={this.state.category} onChange={this.handleInputChange}>
+                                    <option value="rent" >Rent/Mortgage</option>
+                                    <option value="car">Car/Insurance</option>
+                                    <option value="utility">Utilities</option>
+                                    <option value="food">Food/Gas</option>
+                                    <option value="school">School Loans/Tuition</option>
+                                    <option value="misc">Miscellaneous</option>
+                                </select>
                             </FormGroup>
 
                             <FormGroup>
