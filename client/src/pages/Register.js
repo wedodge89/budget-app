@@ -6,6 +6,7 @@ import API from "../utils/API";
 
 class Register extends Component {
   state = {
+    firstname: "",
     username: "",
     email: "",
     password: "",
@@ -23,6 +24,8 @@ class Register extends Component {
 
   validateField = (name, value) => {
     switch (name) {
+      case "firstname":
+        break;
       case "username":
         if (value.length > 7) {
           API.availableUN(value.toLowerCase())
@@ -60,6 +63,7 @@ class Register extends Component {
     console.log("pressed button")
     event.preventDefault();
     API.register({
+      firstname: this.state.firstname.toLowerCase(),
       username: this.state.username.toLowerCase(),
       email: this.state.email,
       password: this.state.password
@@ -97,6 +101,15 @@ class Register extends Component {
     return (
       <div className="container registerContainer">
         <form>
+        <FormGroup>
+          <Label text="First Name" />
+          <Input
+            name="firstname"
+            value={this.state.firstname}
+            onChange={this.handleInputChange}
+            type="text"
+          />
+          </FormGroup>
         <FormGroup>
           <Label text="Username" />
           <Input
