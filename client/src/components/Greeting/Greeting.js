@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { text } from "express";
 
 class Greeting extends Component {
     state = {
         firstname: ""
     };
+    
     
     componentDidMount() {
         console.log("Welcome page: retrieving info");

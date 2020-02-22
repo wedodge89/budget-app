@@ -6,7 +6,6 @@ const Navbar = props => {
     return (
         
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <Greeting />
             <Link className="navbar-brand" to="/">
                 Home
             </Link>
