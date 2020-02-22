@@ -61,3 +61,13 @@ const Budget = props => {
 }
 
 export default Budget;
+
+
+
+
+
+// Tossing this in here for reference when we work on progress bars.
+// function handleProgress() {
+//     const percent = (video.currentTime / video.duration) * 100;
+//     progressBar.style.flexBasis = `${percent}%`
+// };
