@@ -3,7 +3,7 @@ import API from "../../utils/API";
 
 class Greeting extends Component {
     state = {
-        username: ""
+        firstname: ""
     };
     
     componentDidMount() {
@@ -20,7 +20,7 @@ class Greeting extends Component {
                 console.log(res);
                 this.setState({
                     authorized: true,
-                    username: res.data.username
+                    firstname: res.data.firstname
                 });
             }
         })
@@ -34,7 +34,7 @@ class Greeting extends Component {
         return (
             <div>
               <p>
-                Welcome, {this.state.username}!
+                Welcome, {this.state.firstname}!
               </p>
           </div>
       )
