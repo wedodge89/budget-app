@@ -93,11 +93,12 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
 });
 
 router.get("/api/bills/:id", function(req, res){
-  db.User.findOne({user: db.User._id})
+  db.Bills.find({user: db.User._id})
   .populate("bills")
   .populate("budget")
-  .then(function(dbUser){
-    res.json(dbUser);
+  .then(function(dbBill){
+    res.json(dbBill);
+    console.log(dbBill)
   })
   .catch(function(err){
     res.json(err);
