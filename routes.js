@@ -92,8 +92,8 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-router.get("/api/bills/:id", function(req, res){
-  db.Bills.find({user: db.User._id})
+router.get("/api/bills/", isAuthenticated, function(req, res){
+  db.Bills.find({user: req.params._id})
   .populate("bills")
   .then(function(dbBill){
     res.json(dbBill);
@@ -104,8 +104,8 @@ router.get("/api/bills/:id", function(req, res){
   });
 });
 
-router.get("/api/budget/:id", function(req, res){
-  db.Budget.find({user: db.User._id})
+router.get("/api/budget/", isAuthenticated,  function(req, res){
+  db.Budget.find({user: req.params._id})
   .populate("budget")
   .then(function(dbBudget){
     res.json(dbBudget);

@@ -23,9 +23,9 @@ export default {
     return axios.get("/api/user/?username=" + username);
   },
   getBills: function () {
-    return axios.get("/api/bills/:_id");
+    return axios.get("/api/bills/");
   },
   getBudget: function () {
-    return axios.get("/api/budget/:_id");
+    return axios.get("/api/budget/");
   }
 };

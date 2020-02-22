@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { text } from "express";
+// import { text } from "express";
 
 class Greeting extends Component {
     state = {
