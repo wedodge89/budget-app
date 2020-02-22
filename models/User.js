@@ -11,10 +11,10 @@ const User = new Schema({
     },
     created: { type: Date, required: true, default: Date.now() },
 
-    bill: {
+    bills:[ {
         type: Schema.Types.ObjectId,
         ref: "Bill"
-    },
+    }],
     budget: {
         type: Schema.Types.ObjectId,
         ref: "Budget"

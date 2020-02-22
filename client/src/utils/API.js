@@ -10,6 +10,9 @@ export default {
   submit: function (user) {
     return axios.post("/api/budgetform", user);
   },
+  billSubmit: function (user) {
+    return axios.post("/api/billsform", user)
+  },
   isAuthorized: function () {
     return axios.get("/api/authorized");
   },
@@ -18,5 +21,8 @@ export default {
   },
   availableUN: function (username) {
     return axios.get("/api/user/?username=" + username);
+  },
+  getBills: function (user) {
+    return axios.get("/api/bills" + user)
   }
 };

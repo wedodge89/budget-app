@@ -40,19 +40,34 @@ router.post("/api/login", function (req, res, next) {
     });
   })(req, res, next);
 });
-
 router.post("/api/budgetform", function (req, res) {
-  db.Budget.create(
-    new db.Budget({ total: req.body.total, rent: req.body.rent, car: req.body.car, utility: req.body.utility, food: req.body.food, school: req.body.school, misc: req.body.misc }),
-    function(err, budget) {
-      if(err) {
-        console.log(err);
-        return res.json(err);
-      }
-      res.json(budget)
-    }
-  );
+  db.Budget.create({ total: req.body.total, rent: req.body.rent, car: req.body.car, utility: req.body.utility, food: req.body.food, school: req.body.school, misc: req.body.misc })
+    .then(function(dbBudget) {
+      return db.User.findOneAndUpdate({$set: {budget: dbBudget}} )
+    })
+    .then(function(dbUser){
+      res.json(dbUser)
+    })
+    .catch(function(err){
+      console.log(err);
+      res.json(err);
+    });
+});
+
+router.post("/api/billsform", function (req, res) {
+  db.Bills.create({name: req.body.name, amount: req.body.amount, date: req.body.amount})
+    .then(function(dbBill) {
+      return db.User.findOneAndUpdate({}, {$push: {bills: dbBill}}, {new: true} );
+    })
+    .then(function(dbUser){
+      res.json(dbUser)
+    })
+    .catch(function(err){
+      console.log(err);
+      res.json(err);
+    });
 })
+
 
 router.get("/api/logout", function (req, res) {
   req.logout();
@@ -75,6 +90,17 @@ router.get("/api/user", function (req, res) {
 router.get("/api/authorized", isAuthenticated, function (req, res) {
   console.log("working")
   res.json(req.user);
+});
+
+router.get("/api/bills", function(req, res){
+  db.User.findOne({user: db.User._id})
+  .populate("bills")
+  .then(function(dbUser){
+    res.json(dbUser);
+  })
+  .catch(function(err){
+    res.json(err);
+  });
 });
 
 module.exports = router;

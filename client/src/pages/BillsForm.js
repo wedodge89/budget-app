@@ -23,6 +23,21 @@ state= {
         });
 
     };
+    billSubmit = (event) => {
+        event.preventDefault();
+        API.billSubmit({
+            name: this.state.name,
+            amount: this.state.amount,
+            date: this.state.date
+            
+            
+        }).then( res => {
+            console.log(res);
+          
+            
+        })
+    }
+
 
 
     render() {
@@ -65,6 +80,8 @@ state= {
                                     className="form-control" id="date"
                                     placeholder="MM/DD/YYYY" />
                             </FormGroup>
+
+                            <FormBtn text="Submit" onClick={this.billSubmit} classes="btn-primary"/>
                         </form>
                     </Col>
                 </Row>
