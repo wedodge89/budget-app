@@ -92,13 +92,24 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-router.get("/api/bills/:id", function(req, res){
-  db.Bills.find({user: db.User._id})
+router.get("/api/bills/", isAuthenticated, function(req, res){
+  db.Bills.find({user: req.params._id})
   .populate("bills")
-  .populate("budget")
   .then(function(dbBill){
     res.json(dbBill);
     console.log(dbBill)
+  })
+  .catch(function(err){
+    res.json(err);
+  });
+});
+
+router.get("/api/budget/", isAuthenticated,  function(req, res){
+  db.Budget.find({user: req.params._id})
+  .populate("budget")
+  .then(function(dbBudget){
+    res.json(dbBudget);
+    console.log(dbBudget);
   })
   .catch(function(err){
     res.json(err);
