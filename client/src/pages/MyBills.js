@@ -4,6 +4,7 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
+
 class Bills extends Component{
 state = {
     bills: [],
