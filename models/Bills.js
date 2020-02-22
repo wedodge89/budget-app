@@ -11,6 +11,10 @@ const BillSchema = new Schema({
         type: Number,
         required: true,
     },
+    category: {
+        type: String,
+        required: true
+    },
     paid: {
         type: Boolean,
         default: false

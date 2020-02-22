@@ -55,7 +55,7 @@ router.post("/api/budgetform", function (req, res) {
 });
 
 router.post("/api/billsform", function (req, res) {
-  db.Bills.create({name: req.body.name, amount: req.body.amount, date: req.body.amount})
+  db.Bills.create({name: req.body.name, amount: req.body.amount, category: req.body.category, date: req.body.date})
     .then(function(dbBill) {
       return db.User.findOneAndUpdate({}, {$push: {bills: dbBill}}, {new: true} );
     })
@@ -92,9 +92,10 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-router.get("/api/bills", function(req, res){
+router.get("/api/bills/:id", function(req, res){
   db.User.findOne({user: db.User._id})
   .populate("bills")
+  .populate("budget")
   .then(function(dbUser){
     res.json(dbUser);
   })
