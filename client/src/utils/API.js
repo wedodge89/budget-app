@@ -27,5 +27,8 @@ export default {
   },
   getBudget: function () {
     return axios.get("/api/budget/");
+  },
+  getMyBills: function () {
+    return axios.get("/api/budget/bills");
   }
 };
