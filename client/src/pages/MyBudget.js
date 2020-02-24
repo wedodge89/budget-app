@@ -17,6 +17,7 @@ class Budget extends Component {
         school: 0,
         misc: 0,
         bills: [],
+        newTotal: 0,
         newRent: 0,
         newCar: 0,
         newUtil: 0,
@@ -60,6 +61,11 @@ class Budget extends Component {
                     })
 
                 }
+                let myTotal = myBill.reduce((r,d) => r+ d.amount, 0);
+                this.setState({
+                    newTotal: myTotal
+                })
+
                let myRent = myBill.filter(bill => bill.category.includes("rent"));
                let rents = myRent.reduce((r,d) => r + d.amount, 0);
                this.setState({
@@ -117,7 +123,7 @@ class Budget extends Component {
                     <Row>
                         {this.state.budget.map(bdgt => (
                             <Col size="md-12" key={bdgt._id}>
-                                <h2>My Total Monthly Budget is:${bdgt.total} You have spent:</h2>
+                                <h2>My Total Monthly Budget is:${bdgt.total} You have spent: ${this.state.newTotal}</h2>
                             </Col>
                         ))}
                     </Row>
