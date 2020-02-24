@@ -41,8 +41,8 @@ handleInputChange = event => {
       .catch(err => console.log(err));
   };
 
-  deleteBill = () => {
-      API.deleteMyBill()
+  deleteBill = (id) => {
+      API.deleteMyBill(id)
       .then(res => {
       let newBills = res.data;
       for(let i = 0; i <newBills.length; i++) {
