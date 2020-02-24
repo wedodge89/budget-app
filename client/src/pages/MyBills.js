@@ -67,6 +67,7 @@ handleInputChange = event => {
                   {this.state.bills.map(bill => (
                   <Col size="md-12" key={bill._id}>
                       <Card 
+                      id={bill._id}
                       name={bill.name}
                       amount={bill.amount}
                       date={bill.date}

@@ -57,7 +57,7 @@ router.post("/api/budgetform", function (req, res) {
 router.post("/api/billsform", function (req, res) {
   db.Bills.create({name: req.body.name, amount: req.body.amount, category: req.body.category, date: req.body.date})
     .then(function(dbBill) {
-      return db.User.findOneAndUpdate({}, {$push: {bills: dbBill}}, {new: true} );
+      return db.User.findOneAndUpdate({id: req.user._id}, {$push: {bills: dbBill}}, {new: true} );
     })
     .then(function(dbUser){
       res.json(dbUser)
@@ -128,18 +128,16 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
   });
 });
 
-router.delete("/api/bills/delete", isAuthenticated, function(req, res) {
-  db.Bills.findByIdAndDelete({_id: req.params._id},
-    function(error, removed) {
-      if(error){
-        console.log(error)
-        res.send(error)
-      } else {
-        console.log(removed)
-        res.redirect("/api/bills")
-      }
+router.delete("/api/bills/delete:id", isAuthenticated, function(req, res) {
+  db.Bills.deleteOne({_id: req.params._id}),
+    console.log(req.params._id),
+    db.User.deleteOne({_id: req.params._id})
+    .then(res => {
+      console.log(res)
+    }).catch((error) =>{
+      console.log(error)
     }
-    )
+  )
   console.log("Bill has been deleted")
 });
 
