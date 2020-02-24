@@ -116,4 +116,16 @@ router.get("/api/budget/", isAuthenticated,  function(req, res){
   });
 });
 
+router.get("/api/budget/bills", isAuthenticated, function(req, res){
+  db.Bills.find({user: req.params._id})
+  .populate("bills")
+  .then(function(dbBill){
+    res.json(dbBill);
+    console.log(dbBill)
+  })
+  .catch(function(err){
+    res.json(err);
+  });
+});
+
 module.exports = router;
