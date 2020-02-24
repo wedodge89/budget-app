@@ -30,5 +30,8 @@ export default {
   },
   getMyBills: function () {
     return axios.get("/api/budget/bills");
+  },
+  deleteMyBill: function () {
+    return axios.delete("/api/bills/delete");
   }
 };

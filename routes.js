@@ -128,4 +128,19 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
   });
 });
 
+router.delete("/api/bills/delete", isAuthenticated, function(req, res) {
+  db.Bills.findByIdAndDelete({_id: req.params._id},
+    function(error, removed) {
+      if(error){
+        console.log(error)
+        res.send(error)
+      } else {
+        console.log(removed)
+        res.redirect("/api/bills")
+      }
+    }
+    )
+  console.log("Bill has been deleted")
+});
+
 module.exports = router;

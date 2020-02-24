@@ -41,6 +41,22 @@ handleInputChange = event => {
       .catch(err => console.log(err));
   };
 
+  deleteBill = () => {
+      API.deleteMyBill()
+      .then(res => {
+      let newBills = res.data;
+      for(let i = 0; i <newBills.length; i++) {
+      this.setState({
+          bills: newBills.concat()
+      })
+    }
+      console.log(this.state.bills);
+    })
+    .catch(err => console.log(err));
+    console.log("click working")
+    
+  }
+
   render(){
       return(
           <Container>
@@ -54,6 +70,7 @@ handleInputChange = event => {
                       name={bill.name}
                       amount={bill.amount}
                       date={bill.date}
+                      deleteBill={this.deleteBill}
                       />
                   </Col>
                   ))}
