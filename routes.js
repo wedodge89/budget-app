@@ -93,7 +93,7 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
 });
 
 router.get("/api/bills/", isAuthenticated, function(req, res){
-  db.Bills.find({user: req.params._id})
+  db.User.find({id: req.user._id})
   .populate("bills")
   .then(function(dbBill){
     res.json(dbBill);
@@ -105,19 +105,21 @@ router.get("/api/bills/", isAuthenticated, function(req, res){
 });
 
 router.get("/api/budget/", isAuthenticated,  function(req, res){
-  db.Budget.find({user: req.params._id})
+  db.User.find({_id: req.user._id})
   .populate("budget")
   .then(function(dbBudget){
     res.json(dbBudget);
     console.log(dbBudget);
+    console.log(req.user._id)
   })
   .catch(function(err){
     res.json(err);
   });
+ 
 });
 
 router.get("/api/budget/bills", isAuthenticated, function(req, res){
-  db.Bills.find({user: req.params._id})
+  db.User.find({_id: req.user._id})
   .populate("bills")
   .then(function(dbBill){
     res.json(dbBill);

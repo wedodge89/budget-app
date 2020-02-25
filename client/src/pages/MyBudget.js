@@ -55,53 +55,57 @@ class Budget extends Component {
         API.getMyBills()
             .then(res => {
                 let myBill = res.data;
+                console.log(myBill)
                 for (let i = 0; i < myBill.length; i++) {
                     this.setState({
                         bills: myBill.concat()
                     })
 
-                }
+               
                 let myTotal = myBill.reduce((r,d) => r+ d.amount, 0);
                 this.setState({
                     newTotal: myTotal
                 })
 
-               let myRent = myBill.filter(bill => bill.category.includes("rent"));
+               let myRent = myBill.filter(bill => bill.bills[i].category.includes("rent"));
+               console.log(myRent)
                let rents = myRent.reduce((r,d) => r + d.amount, 0);
                this.setState({
                    newRent: rents
                })
                 
-               let myCar = myBill.filter(bill => bill.category.includes("car"));
+               let myCar = myBill.filter(bill => bill.bills[i].category.includes("car"));
                let result = myCar.reduce((r,d) => r + d.amount, 0);
             //    console.log(result);
                this.setState({
                    newCar: result
                });
 
-               let myUtil = myBill.filter(bill => bill.category.includes("utility"));
+               let myUtil = myBill.filter(bill => bill.bills[i].category.includes("utility"));
                let util = myUtil.reduce((r,d) => r + d.amount, 0);
                this.setState({
                    newUtil: util
                });
 
-               let myFood = myBill.filter(bill => bill.category.includes("food"));
+               let myFood = myBill.filter(bill => bill.bills[i].category.includes("food"));
                let foods = myFood.reduce((r,d) => r + d.amount, 0);
                this.setState({
                    newFood: foods
                });
 
-               let mySchool = myBill.filter(bill => bill.category.includes("school"));
+               let mySchool = myBill.filter(bill => bill.bills[i].category.includes("school"));
+               
                let schl = mySchool.reduce((r,d) => r + d.amount, 0);
                this.setState({
                    newSchool: schl
                });
 
-               let myMisc = myBill.filter(bill => bill.category.includes("misc"));
+               let myMisc = myBill.filter(bill => bill.bills[i].category.includes("misc"));
                let miscl = myMisc.reduce((r,d) => r + d.amount, 0);
                this.setState({
                    newMisc: miscl
                })
+            }
             });
     }
     
