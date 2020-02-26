@@ -40,70 +40,63 @@ class Budget extends Component {
         API.getBudget()
             .then(res => {
                 let myBudget = res.data;
+                console.log(myBudget)
                 for (let i = 0; i < myBudget.length; i++) {
                     this.setState({
                         budget: myBudget.concat()
                     })
                 }
 
-                // console.log(this.state.budget)
+                console.log(this.state.budget)
             })
             .catch(err => console.log(err));
     };
 
     getAllBills = () => {
-        API.getMyBills()
-            .then(res => {
-                let myBill = res.data;
-                for (let i = 0; i < myBill.length; i++) {
-                    this.setState({
-                        bills: myBill.concat()
-                    })
-
-                }
-                let myTotal = myBill.reduce((r,d) => r+ d.amount, 0);
-                this.setState({
-                    newTotal: myTotal
-                })
-
-               let myRent = myBill.filter(bill => bill.category.includes("rent"));
-               let rents = myRent.reduce((r,d) => r + d.amount, 0);
-               this.setState({
-                   newRent: rents
-               })
-                
-               let myCar = myBill.filter(bill => bill.category.includes("car"));
-               let result = myCar.reduce((r,d) => r + d.amount, 0);
-            //    console.log(result);
-               this.setState({
-                   newCar: result
-               });
-
-               let myUtil = myBill.filter(bill => bill.category.includes("utility"));
-               let util = myUtil.reduce((r,d) => r + d.amount, 0);
-               this.setState({
-                   newUtil: util
-               });
-
-               let myFood = myBill.filter(bill => bill.category.includes("food"));
-               let foods = myFood.reduce((r,d) => r + d.amount, 0);
-               this.setState({
-                   newFood: foods
-               });
-
-               let mySchool = myBill.filter(bill => bill.category.includes("school"));
-               let schl = mySchool.reduce((r,d) => r + d.amount, 0);
-               this.setState({
-                   newSchool: schl
-               });
-
-               let myMisc = myBill.filter(bill => bill.category.includes("misc"));
-               let miscl = myMisc.reduce((r,d) => r + d.amount, 0);
-               this.setState({
-                   newMisc: miscl
-               })
-            });
-    }
+        API.getMyBills().then(res => {
+          let myBill = res.data;
+          console.log(myBill);
+          let total = 0;
+          let rent = 0;
+          let car = 0;
+          let utility = 0;
+          let food = 0;
+          let school = 0;
+          let misc = 0;
+          res.data.bills.forEach(bill => {
+            switch (bill.category) {
+              case "rent":
+                rent += bill.amount;
+                break;
+              case "car":
+                car += bill.amount;
+                break;
+              case "utility":
+                utility += bill.amount;
+                break;
+              case "food":
+                food += bill.amount;
+                break;
+              case "school":
+                school += bill.amount;
+                break;
+              case "misc":
+                misc += bill.amount;
+                break;
+            }
+            total += bill.amount;
+          });
+          this.setState({
+            rent,
+            car,
+            utility,
+            food,
+            school,
+            misc,
+            total
+          });
+        });
+      };
     
     
 
@@ -123,7 +116,7 @@ class Budget extends Component {
                     <Row>
                         {this.state.budget.map(bdgt => (
                             <Col size="md-12" key={bdgt._id}>
-                                <h2>My Total Monthly Budget is:${bdgt.total} You have spent: ${this.state.newTotal}</h2>
+                                <h2>My Total Monthly Budget is:${bdgt.budget.total} You have spent: ${this.state.total}</h2>
                             </Col>
                         ))}
                     </Row>
@@ -133,37 +126,37 @@ class Budget extends Component {
                         <Col size="md-12" key={myBdgt._id}>
                             <div className="budgetCat">
 
-                                <h3>Rent/Mortgage</h3> <h4>Budget: ${myBdgt.rent} You have spent: ${this.state.newRent}</h4>                    
+                                <h3>Rent/Mortgage</h3> <h4>Budget: ${myBdgt.budget.rent} You have spent: ${this.state.rent}</h4>                    
                                 <div className="progress" style={{ height: 20 }}>
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
 
-                                <h3>Car Payments/Car Insurance</h3> <h4>Budget: ${myBdgt.car} You have spent:${this.state.newCar} </h4>
+                                <h3>Car Payments/Car Insurance</h3> <h4>Budget: ${myBdgt.budget.car} You have spent:${this.state.car} </h4>
                                 <div className="progress" style={{ height: 20 }}>
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
 
-                                <h3>Utilities</h3> <h4>Budget: ${myBdgt.utility} You have spent: ${this.state.newUtil} </h4>
+                                <h3>Utilities</h3> <h4>Budget: ${myBdgt.budget.utility} You have spent: ${this.state.utility} </h4>
                                 <div className="progress" style={{ height: 20 }}>
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
 
-                                <h3>Food/Gas</h3> <h4>Budget: ${myBdgt.food} You have spent: ${this.state.newFood}</h4>
+                                <h3>Food/Gas</h3> <h4>Budget: ${myBdgt.budget.food} You have spent: ${this.state.food}</h4>
                                 <div className="progress" style={{ height: 20 }}>
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
 
-                                <h3>Tuitions/Student Loans</h3> <h4>Budget: ${myBdgt.school} You have spent: ${this.state.newSchool}</h4>
+                                <h3>Tuitions/Student Loans</h3> <h4>Budget: ${myBdgt.budget.school} You have spent: ${this.state.school}</h4>
                                 <div className="progress" style={{ height: 20 }}>
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
 
-                                <h3>Misc</h3> <h4>Budget: ${myBdgt.misc} You have spent: ${this.state.newMisc}</h4>
+                                <h3>Misc</h3> <h4>Budget: ${myBdgt.budget.misc} You have spent: ${this.state.misc}</h4>
                                 <div className="progress" style={{ height: 20 }}>
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
