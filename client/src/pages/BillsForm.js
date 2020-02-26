@@ -10,7 +10,7 @@ class BillsForm extends Component {
 state= {
     name: "",
     amount: 0,
-    category: "",
+    category: "rent",
     date: ""
 };
 
