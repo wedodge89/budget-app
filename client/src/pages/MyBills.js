@@ -51,14 +51,14 @@ handleInputChange = event => {
     
   }
 
-  get bills(){
+    get bills(){
       const { bills } = this.state
       console.log(bills);
       if(Array.isArray(bills)){
           return bills.map(bill => 
             <Card 
             key={bill._id}
-            id={bill._id}
+            _id={bill._id}
             name={bill.name}
             amount={bill.amount}
             date={bill.date}

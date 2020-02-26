@@ -120,7 +120,7 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
   });
 });
 
-router.delete("/api/bills/delete:id", isAuthenticated, function(req, res) {
+router.delete("/api/bills/delete/:id", isAuthenticated, function(req, res) {
   db.Bills.deleteOne({_id: req.params._id})
     console.log(req.params._id),
     db.User.deleteOne({_id: req.user._id, bills: req.params._id})
