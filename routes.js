@@ -123,7 +123,7 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
 router.delete("/api/bills/:id", isAuthenticated, function(req, res) {
   db.Bills.deleteOne({_id: req.params.id})
     console.log(req.params.id),
-    db.User.findOneandUpdate({_id: req.user._id},{ $pull: { bills: { $in: [req.params.id] }}})
+    db.User.findOneAndUpdate({_id: req.user._id},{ $pull: { bills: { $in: [req.params.id] }}})
     .then(res => {
       console.log(res)
     }).catch((error) =>{
