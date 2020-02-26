@@ -92,17 +92,7 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-router.get("/api/bills/", isAuthenticated, function(req, res){
-  db.User.findOne({id: req.user._id})
-  .populate("bills")
-  .then(function(dbBill){
-    res.json(dbBill);
-    console.log(dbBill)
-  })
-  .catch(function(err){
-    res.json(err);
-  });
-});
+
 
 router.get("/api/budget/", isAuthenticated,  function(req, res){
   db.User.find({_id: req.user._id})

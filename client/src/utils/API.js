@@ -22,9 +22,6 @@ export default {
   availableUN: function (username) {
     return axios.get("/api/user/?username=" + username);
   },
-  getBills: function () {
-    return axios.get("/api/bills/");
-  },
   getBudget: function () {
     return axios.get("/api/budget/");
   },
