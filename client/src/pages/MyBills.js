@@ -4,6 +4,7 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
+import Calendar from "react-calendar";
 
 export default class Bills extends Component{
 state = {
@@ -43,13 +44,7 @@ handleInputChange = event => {
   deleteBill = (id) => {
       API.deleteMyBill(id)
       .then(res => {
-      let newBills = res.data;
-      for(let i = 0; i <newBills.length; i++) {
-      this.setState({
-          bills: newBills.concat()
-      })
-    }
-      console.log(this.state.bills);
+      this.getMyBills()
     })
     .catch(err => console.log(err));
     console.log("click working")
@@ -71,14 +66,16 @@ handleInputChange = event => {
             />
         )
       }
+      
 
-      return <p>Sorry no bills to show</p>
+      return <h4>Sorry no bills to show</h4>
 
   }
 
   render(){
       return(
           <Container>
+              <Calendar></Calendar>
               <Row>
                   <Col size="md-12"><h1>My Bills</h1></Col>
               </Row>
