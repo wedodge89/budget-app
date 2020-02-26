@@ -120,10 +120,10 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
   });
 });
 
-router.delete("/api/bills/delete:id", isAuthenticated, function(req, res) {
-  db.Bills.deleteOne({_id: req.params._id}),
-    console.log(req.params._id),
-    db.User.deleteOne({_id: req.params._id})
+router.delete("/api/bills/:id", isAuthenticated, function(req, res) {
+  db.Bills.deleteOne({_id: req.params.id})
+    console.log(req.params.id),
+    db.User.findOneAndUpdate({_id: req.user._id},{ $pull: { bills: { $in: [req.params.id] }}})
     .then(res => {
       console.log(res)
     }).catch((error) =>{
