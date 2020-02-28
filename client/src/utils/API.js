@@ -30,5 +30,8 @@ export default {
   },
   deleteMyBill: function (id) {
     return axios.delete("/api/bills/" + id);
+  },
+  deleteMyBudget: function (id) {
+    return axios.delete("/api/budget/" + id);
   }
 };
