@@ -1,5 +1,4 @@
 import React from "react";
-import Greeting from "../Greeting/Greeting"
 import { Link, Router } from "react-router-dom";
 
 const Navbar = props => {
