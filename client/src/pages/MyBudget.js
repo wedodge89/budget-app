@@ -24,16 +24,12 @@ class Budget extends Component {
         newFood: 0,
         newSchool: 0,
         newMisc: 0
-        
-
     }
 
     componentDidMount() {
         this.getMyBudget();
         this.getAllBills();
     }
-
-
 
 
     getMyBudget = () => {
@@ -46,7 +42,6 @@ class Budget extends Component {
                         budget: myBudget.concat()
                     })
                 }
-
                 console.log(this.state.budget)
             })
             .catch(err => console.log(err));
