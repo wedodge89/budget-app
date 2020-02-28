@@ -3,6 +3,8 @@ import Container from "../components/Container/Container";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
+import ProgressBar from "react-bootstrap/ProgressBar"
+
 
 class Budget extends Component {
 
@@ -24,6 +26,7 @@ class Budget extends Component {
         newFood: 0,
         newSchool: 0,
         newMisc: 0
+
     }
 
     componentDidMount() {
@@ -94,7 +97,7 @@ class Budget extends Component {
       };
     
     
-
+    
 
 
 
@@ -112,6 +115,7 @@ class Budget extends Component {
                         {this.state.budget.map(bdgt => (
                             <Col size="md-12" key={bdgt._id}>
                                 <h2>My Total Monthly Budget is:${bdgt.budget.total} You have spent: ${this.state.total}</h2>
+                                <ProgressBar striped variant="success" now={40} />
                             </Col>
                         ))}
                     </Row>
@@ -122,39 +126,26 @@ class Budget extends Component {
                             <div className="budgetCat">
 
                                 <h3>Rent/Mortgage</h3> <h4>Budget: ${myBdgt.budget.rent} You have spent: ${this.state.rent}</h4>                    
-                                <div className="progress" style={{ height: 20 }}>
-                                    <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                    <ProgressBar striped variant="info" now={20} />
 
 
                                 <h3>Car Payments/Car Insurance</h3> <h4>Budget: ${myBdgt.budget.car} You have spent:${this.state.car} </h4>
-                                <div className="progress" style={{ height: 20 }}>
-                                    <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <ProgressBar striped variant="warning" now={60} />
 
 
                                 <h3>Utilities</h3> <h4>Budget: ${myBdgt.budget.utility} You have spent: ${this.state.utility} </h4>
-                                <div className="progress" style={{ height: 20 }}>
-                                    <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <ProgressBar striped variant="danger" now={80} />
 
 
                                 <h3>Food/Gas</h3> <h4>Budget: ${myBdgt.budget.food} You have spent: ${this.state.food}</h4>
-                                <div className="progress" style={{ height: 20 }}>
-                                    <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-
+                                <ProgressBar striped variant="danger" now={80} />
 
                                 <h3>Tuitions/Student Loans</h3> <h4>Budget: ${myBdgt.budget.school} You have spent: ${this.state.school}</h4>
-                                <div className="progress" style={{ height: 20 }}>
-                                    <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <ProgressBar striped variant="danger" now={80} />
 
 
                                 <h3>Misc</h3> <h4>Budget: ${myBdgt.budget.misc} You have spent: ${this.state.misc}</h4>
-                                <div className="progress" style={{ height: 20 }}>
-                                    <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <ProgressBar striped variant="danger" now={80} />
 
                             </div>
                         </Col>
