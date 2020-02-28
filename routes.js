@@ -122,6 +122,7 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
 
 router.delete("/api/bills/:id", isAuthenticated, function(req, res) {
   db.Bills.deleteOne({_id: req.params.id})
+
     console.log(req.params.id),
     db.User.findOneAndUpdate({_id: req.user._id},{ $pull: { bills: { $in: [req.params.id] }}})
     .then(res => {
@@ -131,6 +132,20 @@ router.delete("/api/bills/:id", isAuthenticated, function(req, res) {
     }
   )
   console.log("Bill has been deleted")
+});
+
+router.delete("/api/budget/:id", isAuthenticated, function(req, res) {
+  db.Budget.deleteOne({_id: req.params.id}).then(res => {
+    console.log(req.params.id),
+    db.User.findOneAndUpdate({_id: req.user._id}, { $unset : {budget: 1} } )
+  })
+    .then(res => {
+      console.log(res)
+    }).catch((error) =>{
+      console.log(error)
+    }
+  )
+  console.log("Budget has been deleted")
 });
 
 module.exports = router;

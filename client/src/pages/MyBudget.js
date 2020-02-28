@@ -9,6 +9,7 @@ class Budget extends Component {
 
     state = {
         budget: [],
+        id: "",
         total: 0,
         rent: 0,
         car: 0,
@@ -40,7 +41,7 @@ class Budget extends Component {
         API.getBudget()
             .then(res => {
                 let myBudget = res.data;
-                console.log(myBudget)
+                console.log(myBudget._id)
                 for (let i = 0; i < myBudget.length; i++) {
                     this.setState({
                         budget: myBudget.concat()
@@ -97,6 +98,17 @@ class Budget extends Component {
           });
         });
       };
+
+      deleteBudget = (id) => {
+        API.deleteMyBudget(id)
+        .then(res => {
+        this.getMyBudget();
+        
+      })
+      .catch(err => console.log(err));
+      console.log("click working")
+      console.log(id)
+    }
     
     
 
@@ -123,6 +135,7 @@ class Budget extends Component {
                 </Container>
                 <Row>
                     {this.state.budget.map(myBdgt => (
+                        
                         <Col size="md-12" key={myBdgt._id}>
                             <div className="budgetCat">
 
@@ -161,6 +174,8 @@ class Budget extends Component {
                                     <div className="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
+                                <button onClick={() => this.deleteBudget(myBdgt.budget._id)} >Delete</button>
+                            
                             </div>
                         </Col>
                     ))}
