@@ -126,26 +126,26 @@ class Budget extends Component {
                             <div className="budgetCat">
 
                                 <h3>Rent/Mortgage</h3> <h4>Budget: ${myBdgt.budget.rent} You have spent: ${this.state.rent}</h4>                    
-                                    <ProgressBar striped variant="info" now={20} />
+                                <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100} />
 
 
                                 <h3>Car Payments/Car Insurance</h3> <h4>Budget: ${myBdgt.budget.car} You have spent:${this.state.car} </h4>
-                                <ProgressBar striped variant="warning" now={60} />
+                                <ProgressBar now={parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100} />
 
 
                                 <h3>Utilities</h3> <h4>Budget: ${myBdgt.budget.utility} You have spent: ${this.state.utility} </h4>
-                                <ProgressBar striped variant="danger" now={80} />
+                                <ProgressBar now={parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100} />
 
 
                                 <h3>Food/Gas</h3> <h4>Budget: ${myBdgt.budget.food} You have spent: ${this.state.food}</h4>
-                                <ProgressBar striped variant="danger" now={80} />
+                                <ProgressBar now={parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100} />
 
                                 <h3>Tuitions/Student Loans</h3> <h4>Budget: ${myBdgt.budget.school} You have spent: ${this.state.school}</h4>
-                                <ProgressBar striped variant="danger" now={80} />
+                                <ProgressBar now={parseFloat(`${this.state.school}`) / parseFloat(`${myBdgt.budget.school}`) * 100} />
 
 
                                 <h3>Misc</h3> <h4>Budget: ${myBdgt.budget.misc} You have spent: ${this.state.misc}</h4>
-                                <ProgressBar striped variant="danger" now={80} />
+                                <ProgressBar now={parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100} />
 
                             </div>
                         </Col>
