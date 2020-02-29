@@ -5,6 +5,7 @@ import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
 import Calendar from "react-calendar";
+import {withRouter} from "react-router-dom";
 import {FormGroup, Input, Label, FormBtn} from "../components/Form/Form";
 
 class Update extends Component {
@@ -50,14 +51,14 @@ class Update extends Component {
 
       billUpdate = (event) => {
         event.preventDefault();
-        API.billUpdate({
+        API.billUpdate(
+            this.props.billId,
+            {
             name: this.state.name,
             amount: this.state.amount,
             category: this.state.category,
             paid: this.state.paid,
-            date: this.state.date
-            
-            
+            date: this.state.date  
         }).then( res => {
             console.log(res);
           console.log("Bill updated")
@@ -126,7 +127,7 @@ class Update extends Component {
                                     placeholder="MM/DD/YYYY" />
                             </FormGroup>
 
-                            <FormBtn text="Submit" onClick={this.billSubmit} classes="btn-primary"/>
+                            <FormBtn text="Submit" onClick={this.billUpdate} classes="btn-primary"/>
                         </form>
                     </Col>
                 </Row>
@@ -134,4 +135,4 @@ class Update extends Component {
         )
     }
 }
-export default Update;
+export default withRouter(Update);
