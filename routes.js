@@ -165,9 +165,10 @@ router.get("/api/updatebills/:id", isAuthenticated, function(req,res) {
   console.log("Bill has been retrieved")
 });
 
-router.put("/api/bills/:id", isAuthenticated, function (req, res){
-  db.Bills.updateOne({
-    name: req.body.name, 
+router.put("/api/updatebills/:id", isAuthenticated, function (req, res){
+  console.log(req.params.id)
+  db.Bills.findByIdAndUpdate(req.params.id,
+    {name: req.body.name, 
     amount: req.body.amount, 
     category: req.body.category, 
     paid: req.body.paid, 
