@@ -33,5 +33,11 @@ export default {
   },
   deleteMyBudget: function (id) {
     return axios.delete("/api/budget/" + id);
+  },
+  billUpadate: function (id) {
+    return axios.put("/api/updatebills/" + id);
+  },
+  getBill: function (id) {
+    return axios.get("/api/updatebills/" + id);
   }
 };

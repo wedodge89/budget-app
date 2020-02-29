@@ -9,16 +9,24 @@ import Budget from "./pages/MyBudget";
 import Bills from "./pages/MyBills";
 import BudgetForm from "./pages/BudgetForm";
 import BillsForm from "./pages/BillsForm";
+import Update from "./pages/UpdateBills"
 import API from "./utils/API";
 
 class App extends Component {
 
   state = {
-    authorized: false
+    authorized: false,
+    updateBillId: null
   }
 
   componentDidMount() {
     this.isAuthorized();
+  }
+
+  updateBillId = (id) => {
+    this.setState({
+      updateBillId: id
+    })
   }
 
   isAuthorized = () => {
@@ -75,7 +83,7 @@ class App extends Component {
               </Route>
               <Route exact path="/bills">
               {this.state.authorized ? (
-                <Bills /> 
+                <Bills updateBillId={this.updateBillId}/> 
               ) : (
                 <Redirect to="/login" />
               )}
@@ -100,8 +108,15 @@ class App extends Component {
               ) : (
                 <Redirect to="/login" />
               )}
-              </Route>
-          
+              </Route>  
+
+              <Route exact path="/updatebills">
+              {this.state.authorized ? (
+                <Update billId={this.state.updateBillId}/> 
+              ) : (
+                <Redirect to="/login" />
+              )}
+              </Route>       
 
       </Router>
       

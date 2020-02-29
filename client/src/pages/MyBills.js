@@ -5,8 +5,10 @@ import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
 import Calendar from "react-calendar";
+import {withRouter} from "react-router-dom";
 
-export default class Bills extends Component{
+
+ class Bills extends Component{
 state = {
     bills: [],
     name: "",
@@ -50,6 +52,12 @@ handleInputChange = event => {
     console.log("click working")
     
   }
+  updateBill = (id) => {
+    console.log(id)
+    this.props.updateBillId(id);
+    this.props.history.push("/updatebills")
+  }
+  
 
     get bills(){
       const { bills } = this.state
@@ -63,6 +71,7 @@ handleInputChange = event => {
             amount={bill.amount}
             date={bill.date}
             deleteBill={this.deleteBill}
+            updateBill={this.updateBill}
             />
         )
       }
@@ -89,3 +98,4 @@ handleInputChange = event => {
   }
 
 }
+export default withRouter(Bills);
