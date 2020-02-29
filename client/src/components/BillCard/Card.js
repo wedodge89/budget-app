@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./../../compCss/BillCard.css"
+
 
 const Card = (props) => {
     return (
@@ -8,8 +10,8 @@ const Card = (props) => {
                 <h5 className="card-title">{props.name}</h5>
                 <p className="bill-amount">${props.amount}</p>
                 {/* <p className="due-date"{...props}></p> */}
-                <button onClick={() => props.editClick(props._id)} >Edit</button>
-                <button onClick={() => props.deleteBill(props._id)} >Delete</button>
+                <button onClick={() => props.updateBill(props._id)} >Update Bill</button>
+                <button onClick={() => props.deleteBill(props._id)} >Delete Bill</button>
 
 
             </div>

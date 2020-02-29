@@ -120,6 +120,8 @@ router.get("/api/budget/bills", isAuthenticated, function(req, res){
   });
 });
 
+
+
 router.delete("/api/bills/:id", isAuthenticated, function(req, res) {
   db.Bills.deleteOne({_id: req.params.id})
 
@@ -147,5 +149,37 @@ router.delete("/api/budget/:id", isAuthenticated, function(req, res) {
   )
   console.log("Budget has been deleted")
 });
+
+router.get("/api/updatebills/:id", isAuthenticated, function(req,res) {
+  console.log(req.params.id)
+  console.log("1")
+  db.Bills.findOne({_id: req.params.id}) 
+  
+  .then(dbBill => {
+    res.json(dbBill);
+    console.log(dbBill);
+    console.log('2')
+  }).catch(function(err){
+    res.json(err);
+  });
+  console.log("Bill has been retrieved")
+});
+
+router.put("/api/bills/:id", isAuthenticated, function (req, res){
+  db.Bills.updateOne({
+    name: req.body.name, 
+    amount: req.body.amount, 
+    category: req.body.category, 
+    paid: req.body.paid, 
+    date: req.body.date},
+    )
+  .then(function(data) {
+    console.log(data)
+      res.json(data)
+  }).catch(function(err){
+    res.json(err);
+  })
+  console.log("Bills has been updated")
+})
 
 module.exports = router;
