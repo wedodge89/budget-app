@@ -84,13 +84,15 @@ handleInputChange = event => {
   render(){
       return(
           <Container>
-              <Calendar></Calendar>
               <Row>
                   <Col size="md-12"><h1>My Bills</h1></Col>
               </Row>
               <Row>
-                  <Col size="md-12">
+                  <Col size="md-6" id="billCardCol">
                       {this.bills}
+                  </Col>
+                  <Col size="md-6">
+                    <Calendar></Calendar>
                   </Col>
               </Row>
           </Container>

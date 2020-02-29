@@ -131,7 +131,7 @@ class Budget extends Component {
                             </Col>
                         ))}
                     </Row>
-                </Container>
+                
                 <Row>
                     {this.state.budget.map(myBdgt => (
                         
@@ -166,6 +166,7 @@ class Budget extends Component {
                         </Col>
                     ))}
                 </Row>
+                </Container>
             </div>
         )
 
