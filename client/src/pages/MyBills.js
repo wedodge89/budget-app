@@ -75,7 +75,7 @@ handleInputChange = event => {
   render(){
       return(
           <Container>
-              <Calendar></Calendar>
+            <Calendar></Calendar>
               <Row>
                   <Col size="md-12"><h1>My Bills</h1></Col>
               </Row>
