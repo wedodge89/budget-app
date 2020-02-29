@@ -127,7 +127,7 @@ class Budget extends Component {
                         {this.state.budget.map(bdgt => (
                             <Col size="md-12" key={bdgt._id}>
                                 <h2>My Total Monthly Budget is:${bdgt.budget.total} You have spent: ${this.state.total}</h2>
-                                <ProgressBar striped variant="success" now={40} />
+                                <ProgressBar now={parseFloat(`${this.state.total}`) / parseFloat(`${bdgt.budget.total}`) * 100} striped variant={(parseFloat(`${this.state.total}`) / parseFloat(`${bdgt.budget.total}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.total}`) / parseFloat(`${bdgt.budget.total}`) * 100) < 85 ? "warning" : "danger"}/>
                             </Col>
                         ))}
                     </Row>
@@ -139,26 +139,26 @@ class Budget extends Component {
                             <div className="budgetCat">
 
                                 <h3>Rent/Mortgage</h3> <h4>Budget: ${myBdgt.budget.rent} You have spent: ${this.state.rent}</h4>                    
-                                <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100} />
+                                <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100} variant={(parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100) < 85 ? "warning" : "danger"}/>
 
 
                                 <h3>Car Payments/Car Insurance</h3> <h4>Budget: ${myBdgt.budget.car} You have spent:${this.state.car} </h4>
-                                <ProgressBar now={parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100} />
+                                <ProgressBar now={parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100} variant={(parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100) < 85 ? "warning" : "danger"}/>
 
 
                                 <h3>Utilities</h3> <h4>Budget: ${myBdgt.budget.utility} You have spent: ${this.state.utility} </h4>
-                                <ProgressBar now={parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100} />
+                                <ProgressBar now={parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100} variant={(parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100) < 85 ? "warning" : "danger"}/>
 
 
                                 <h3>Food/Gas</h3> <h4>Budget: ${myBdgt.budget.food} You have spent: ${this.state.food}</h4>
-                                <ProgressBar now={parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100} />
+                                <ProgressBar now={parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100} variant={(parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100) < 85 ? "warning" : "danger"}/>
 
                                 <h3>Tuitions/Student Loans</h3> <h4>Budget: ${myBdgt.budget.school} You have spent: ${this.state.school}</h4>
-                                <ProgressBar now={parseFloat(`${this.state.school}`) / parseFloat(`${myBdgt.budget.school}`) * 100} />
+                                <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100} variant={(parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100) < 85 ? "warning" : "danger"}/>
 
 
                                 <h3>Misc</h3> <h4>Budget: ${myBdgt.budget.misc} You have spent: ${this.state.misc}</h4>
-                                <ProgressBar now={parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100} />
+                                <ProgressBar now={parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100} variant={(parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100) < 85 ? "warning" : "danger"}/>
 
                                 <button onClick={() => this.deleteBudget(myBdgt.budget._id)} >Delete</button>
                             
@@ -173,13 +173,3 @@ class Budget extends Component {
     }
 }
 export default Budget;
-
-
-
-
-
-// Tossing this in here for reference when we work on progress bars.
-// function handleProgress() {
-    //     const percent = (video.currentTime / video.duration) * 100;
-    //     progressBar.style.flexBasis = `${percent}%`
-    // };
