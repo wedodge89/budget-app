@@ -35,9 +35,9 @@ class Greeting extends Component {
     render() {
         return (
             <div>
-              <p>
+              <h1>
                 Welcome, {this.state.firstname}!
-              </p>
+              </h1>
           </div>
       )
     };
