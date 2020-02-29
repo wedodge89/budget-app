@@ -1,0 +1,13 @@
+.bar {
+    color: white;
+    font-family: cursive;
+}
+
+#navHeader {
+    background-color: green !important;
+}
+
+a:hover {
+    background-color: white;
+    color: green !important;
+}
