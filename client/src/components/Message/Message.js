@@ -25,4 +25,6 @@ class Message extends Component {
     };
 };
 
+// Pushing to straighten things out. Fingers crossed. 
+
 export default Message;

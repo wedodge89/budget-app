@@ -1,8 +1,11 @@
 {
-  "name": "mern",
+  "name": "cashmoney",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Full Stack budgeting app",
   "main": "server.js",
+  "engines": {
+    "node": "12.13.0"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
