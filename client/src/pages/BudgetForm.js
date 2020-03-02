@@ -4,6 +4,9 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import { FormGroup, Input, Label, FormBtn } from "../components/Form/Form";
 import API from "../utils/API";
+import {withRouter} from "react-router-dom";
+
+
 
 
 class BudgetForm extends Component {
@@ -15,7 +18,8 @@ class BudgetForm extends Component {
         utility: 0,
         food: 0,
         school: 0,
-        misc: 0
+        misc: 0,
+        error: []
     };
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -24,6 +28,7 @@ class BudgetForm extends Component {
         });
         
       };
+      
 
       submit = (event) => {
           event.preventDefault();
@@ -37,9 +42,12 @@ class BudgetForm extends Component {
               misc: this.state.misc
           }).then( res => {
               console.log(res);
-            
               
-          });
+              this.props.history.push("/")
+              
+          }).catch(err => {
+              console.log(err)
+          })
       };
 
     render(){
@@ -135,4 +143,4 @@ class BudgetForm extends Component {
     }
 }
 
-export default BudgetForm;
+export default withRouter(BudgetForm);

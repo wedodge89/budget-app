@@ -9,27 +9,27 @@ const BudgetSchema = new Schema({
     },
     rent: {
         type: Number,
-        required: false
+        required: true
     },
     car: {
         type: Number,
-        required: false,
+        required: true,
     },
     utility: {
         type: Number,
-        required: false
+        required: true
     },
     food: {
         type: Number,
-        required: false
+        required: true
     },
     school: {
         type: Number,
-        required: false
+        required: true
     },
     misc: {
         type: Number,
-        required: false
+        required: true
     },
 
 })
