@@ -4,7 +4,7 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
-import Calendar from "react-calendar";
+import Calendar from "../components/Calendar/Calendar";
 import {withRouter} from "react-router-dom";
 
 
