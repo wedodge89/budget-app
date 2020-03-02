@@ -1,7 +1,10 @@
 {
-  "name": "mern",
-  "version": "0.1.0",
-  "description": "Mern Demo",
+  "name": "cashmoney",
+  "version": "1.0.0",
+  "description": "Full stack budgeting app",
+  "engines": {
+    "node": "12.13.0"
+  },
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
