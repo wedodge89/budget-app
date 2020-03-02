@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "./../../compCss/Message.css"
 
 
 class Message extends Component {
@@ -16,9 +17,9 @@ class Message extends Component {
         return (
             <div>
               <h3>
-                Ca$h Money is an application that allows you to manage your budget how you see fit.
+                <strong><em>Ca$h Money</em></strong>   is an application that allows you to manage your budget how you see fit.
               </h3>
-              <p>From building your budget to adding bills, you can manage anything right in this application!</p>
+              <p>From building your budget to adding bills, you can do it all right here!</p>
           </div>
       )
     };
