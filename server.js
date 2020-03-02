@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(routes)
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budgetdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://wedodge89:A!NM4R!4@yMZqzw@ds015478.mlab.com:15478/heroku_gh36x90t", { useNewUrlParser: true });
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
