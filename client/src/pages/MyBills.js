@@ -13,7 +13,8 @@ state = {
     bills: [],
     name: "",
     amount: "",
-    date: ""
+    date: "",
+    paid: ""
 };
 
 componentDidMount() {
@@ -70,6 +71,7 @@ handleInputChange = event => {
             name={bill.name}
             amount={bill.amount}
             date={bill.date}
+            paid={bill.paid}
             deleteBill={this.deleteBill}
             updateBill={this.updateBill}
             />

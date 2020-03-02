@@ -111,7 +111,7 @@ class Update extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <Label text="Paid" />
-                                <select className="form-control" name="paid" value={this.state.category} onChange={this.handleInputChange}>
+                                <select className="form-control" name="paid" value={this.state.paid} onChange={this.handleInputChange}>
                                     <option value="true">Bill Paid</option>
                                     <option value="false">Not Paid</option>
                                 </select>
