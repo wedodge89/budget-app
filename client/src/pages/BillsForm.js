@@ -76,22 +76,18 @@ this.state= {
             name: this.state.name,
             amount: this.state.amount,
             category: this.state.category,
-            date: this.state.date
-            
+            date: this.state.date            
             
         }).then( res => {
             console.log(res);
-          this.props.history.push("/")
-        
+          this.props.history.push("/")        
             
         }).catch(err => {
-        console.log(err)
-        
+        console.log(err)       
        
     }) 
         }else {
-            console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-        
+            console.error("FORM INVALID - DISPLAY ERROR MESSAGE");      
 
     };
 };
