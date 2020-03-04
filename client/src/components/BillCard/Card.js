@@ -6,7 +6,7 @@ let moment = require("moment");
 const Card = (props) => {
     return (
         <div className="card billCard">
-            <div className=" card-body text-center">
+            <div className=" card-body text-center bg-success">
                 <h5 className="card-title">{props.name}</h5>
                 <p className="bill-amount">${props.amount}</p>
                 <p className="due-date">{moment(props.date).format("MM/DD/YYYY")}</p>

@@ -1,0 +1,9 @@
+.jumbotron {
+    color: green;
+    text-align: center;
+}
+
+#message {
+    margin: auto;
+    text-align: center;
+}

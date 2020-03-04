@@ -4,9 +4,9 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
-import Calendar from "../components/Calendar/Calendar";
 import { withRouter } from "react-router-dom";
-
+import Jumbotron from "react-bootstrap/Jumbotron";
+import "../pageCss/MyBills.css";
 
 class Bills extends Component {
   state = {
@@ -114,9 +114,8 @@ class Bills extends Component {
   render() {
     return (
       <Container>
-        <Row>
-          <Col size="md-12"><h1>My Bills</h1></Col>
-        </Row>
+        <Jumbotron><h1>My Bills</h1></Jumbotron>
+        
         <Row>
           <Col size="md-6" id="paidBillCardCol">
             <h3>My Paid Bills</h3>
