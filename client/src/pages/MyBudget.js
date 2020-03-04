@@ -4,6 +4,8 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 import ProgressBar from "react-bootstrap/ProgressBar"
+import Jumbotron from "react-bootstrap/Jumbotron";
+import "../pageCss/MyBudget.css";
 
 
 class Budget extends Component {
@@ -115,13 +117,9 @@ class Budget extends Component {
 
     render() {
         return (
-            <div>
+            <div id="budget">
                 <Container>
-                    <Row>
-                        <Col size="md-12">
-                            <h1>My Budget</h1>
-                        </Col>
-                    </Row>
+                    <Jumbotron><h1>My Budget</h1></Jumbotron>
 
                     <Row>
                         {this.state.budget.map(bdgt => (
