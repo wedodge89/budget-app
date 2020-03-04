@@ -61,21 +61,50 @@ class Bills extends Component {
 
 
 
-  get bills() {
+  get paidBills() {
     const { bills } = this.state
     console.log(bills);
     if (Array.isArray(bills)) {
-      return bills.map(bill =>
-        <Card
-          key={bill._id}
-          _id={bill._id}
-          name={bill.name}
-          amount={bill.amount}
-          date={bill.date}
-          paid={bill.paid}
-          deleteBill={this.deleteBill}
-          updateBill={this.updateBill}
-        />
+      return bills.map(bill => {
+        console.log("Hello Jamie")
+        if (bill.paid) {
+          return <Card
+            key={bill._id}
+            _id={bill._id}
+            name={bill.name}
+            amount={bill.amount}
+            date={bill.date}
+            paid={bill.paid}
+            deleteBill={this.deleteBill}
+            updateBill={this.updateBill}
+          />
+        }
+      }
+
+      )
+    }
+    return <h4>Sorry no bills to show</h4>
+  }
+  get unPaidBills() {
+    const { bills } = this.state
+    console.log(bills);
+    if (Array.isArray(bills)) {
+      return bills.map(bill => {
+        console.log("Hello Jamie")
+        if (!bill.paid) {
+          return <Card
+            key={bill._id}
+            _id={bill._id}
+            name={bill.name}
+            amount={bill.amount}
+            date={bill.date}
+            paid={bill.paid}
+            deleteBill={this.deleteBill}
+            updateBill={this.updateBill}
+          />
+        }
+      }
+
       )
     }
     return <h4>Sorry no bills to show</h4>
@@ -89,11 +118,13 @@ class Bills extends Component {
           <Col size="md-12"><h1>My Bills</h1></Col>
         </Row>
         <Row>
-          <Col size="md-6" id="billCardCol">
-            {this.bills}
+          <Col size="md-6" id="paidBillCardCol">
+            <h3>My Paid Bills</h3>
+            {this.paidBills}
           </Col>
-          <Col size="md-6">
-            <Calendar></Calendar>
+          <Col size="md-6" id="unPaidBillCardCol">
+          <h3>My UnPaid Bills</h3>
+            {this.unPaidBills}
           </Col>
         </Row>
       </Container>
