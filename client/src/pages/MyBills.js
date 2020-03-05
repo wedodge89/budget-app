@@ -113,10 +113,10 @@ class Bills extends Component {
 
   render() {
     return (
-      <Container>
+      <Container >
         <Jumbotron><h1>My Bills</h1></Jumbotron>
         
-        <Row>
+        <Row >
           <Col size="md-6" id="paidBillCardCol">
             <h3>My Paid Bills</h3>
             {this.paidBills}
