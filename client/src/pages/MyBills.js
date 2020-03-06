@@ -74,6 +74,7 @@ class Bills extends Component {
             _id={bill._id}
             name={bill.name}
             amount={bill.amount}
+            category={bill.category}
             date={bill.date}
             paid={bill.paid}
             deleteBill={this.deleteBill}
@@ -98,6 +99,7 @@ class Bills extends Component {
             _id={bill._id}
             name={bill.name}
             amount={bill.amount}
+            category={bill.category}
             date={bill.date}
             paid={bill.paid}
             deleteBill={this.deleteBill}
@@ -115,15 +117,17 @@ class Bills extends Component {
   render() {
     return (
       <Container >
-        <Jumbotron><h1>My Bills</h1></Jumbotron>
+        <h1 class="headText">$ My Bills $</h1>
         
         <Row >
+            <h3 class="paidBillHeader">My Paid Bills</h3>
+            <h3 class="unPaidBillHeader">My UnPaid Bills</h3>
+        </Row>
+        <Row>
           <Col size="md-6" id="paidBillCardCol">
-            <h3>My Paid Bills</h3>
             {this.paidBills}
           </Col>
           <Col size="md-6" id="unPaidBillCardCol">
-          <h3>My UnPaid Bills</h3>
             {this.unPaidBills}
           </Col>
         </Row>
