@@ -6,14 +6,16 @@ let moment = require("moment");
 const Card = (props) => {
     return (
         <div className="card billCard">
-            <div className=" card-body text-center bg-success">
-                <h5 className="card-title">Name: {props.name}</h5>
-                <p className="bill-category">Category: {props.category}</p>
-                <p className="bill-amount">Amount: ${props.amount}</p>
-                <p className="due-date">Due: {moment(props.date).format("MM/DD/YYYY")}</p>
-                <p className="paid">{props.paid}</p>
-                <button class="updateBillButton" onClick={() => props.updateBill(props._id)} >Update Bill</button>
-                <button class="deleteBillButton" onClick={() => props.deleteBill(props._id)} >Delete Bill</button>
+            <div className="card-body text-center">
+                <h5 className="card-title card-text">Name: {props.name}</h5>
+                <span className="billCardBody">
+                    <p className="bill-category card-text">Category: {props.category}</p>
+                    <p className="bill-amount card-text">Amount: ${props.amount}</p>
+                    <p className="due-date card-text">Due: {moment(props.date).format("MM/DD/YYYY")}</p>
+                    <p className="paid">{props.paid}</p>
+                </span>
+                <button className="updateBillButton" onClick={() => props.updateBill(props._id)} >Update Bill</button>
+                <button className="deleteBillButton" onClick={() => props.deleteBill(props._id)} >Delete Bill</button>
 
 
             </div>
