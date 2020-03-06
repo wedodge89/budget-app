@@ -5,19 +5,23 @@ import Col from "../Col/Col";
 
 const Elliot = (props) => {
     return (
-        <Container>
+        <Container class="bioBlock">
             <Row>
                 
-                <Col size="md-6">
-                <img src={'/images/elliott.jpg'} id="elliott" alt="" />
+                <Col size="md-2">
+                <a href="https://www.github.com/wedodge89" target="_blank"><img src={'/images/elliott.jpg'} id="elliott" alt="" /></a>
                 </Col>
                 
-            
-                <Col size="md-6">
-                    <p>Hi, I'm Elliott Dodge! I am almost done working on a Full-Stack Developer certificate through the University of Central Florida and Trilogy Education (graduating March 7). I am eager to bring my experiences as a writer for a large, faith-based non-profit into the world of technology and development. I am excited to join a team of diverse thinkers and collaborate to solve the world's problems using elegant, functional code.
+                <Col size="md-2">
 
-                    Strengths that I have cultivated include meeting deadlines, working with teammates from a variety of backgrounds, and crafting content for distinct personas. I can't wait to utilize those skills for your company.</p>
                 </Col>
+            
+                <Col size="md-8">
+                    <p>Elliott Dodge is a writer-turned-web-developer currently living in Orlando, Florida. Years of experience in a content production environment have given him a host of skills that he hopes to leverage for his career in web development.</p>
+
+                    <p>He looks forward to joining a team with diverse skills to use technology to solve real world problems with functional, elegant code.</p>
+                </Col>
+                
             </Row>
         </Container>
     )
