@@ -3,10 +3,9 @@ import Container from "../components/Container/Container";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
-import Card from "../components/BillCard/Card";
-import Calendar from "react-calendar";
 import {withRouter} from "react-router-dom";
 import {FormGroup, Input, Label, FormBtn} from "../components/Form/Form";
+let moment = require("moment");
 
 class Update extends Component {
     constructor(props) {
@@ -119,9 +118,9 @@ class Update extends Component {
 
                             <FormGroup>
                                 <Label text="Due Date" />
-                                <Input type="text"
+                                <Input type="date"
                                     name="date"
-                                    value={this.state.date}
+                                    value={moment(this.state.date).format("MM/DD/YYYY")}
                                     onChange={this.handleInputChange}
                                     className="form-control" id="date"
                                     placeholder="MM/DD/YYYY" />
