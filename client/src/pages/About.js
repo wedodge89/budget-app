@@ -8,46 +8,27 @@ import Message from "../components/Message/Message";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Roy from "../components/Roy/Roy";
 import Elliot from "../components/Elliott/Elliott";
-import App from "../App";
-import { FormBtn } from "../components/Form/Form";
-import "../pageCss/Home.css"
 
-
-
-
-function Home({ logout }) {
+function About() {
 
     return (
-
         <Container>
+            <Jumbotron fluid>
+                <Message />
+            </Jumbotron>
+            
             <Row>
                 <Col size="md-12">
-                    <Jumbotron fluid>
-                        <Greeting />
-                    </Jumbotron>
-                </Col>
-            </Row>
-            <Row id="message">
-                <Col size="md-12">
-                    <Message />
-
+                    <Roy />
                 </Col>
             </Row>
             <Row>
                 <Col size="md-12">
-                    <Calendar />
+                    <Elliot />
                 </Col>
             </Row>
-            <FormBtn
-                text="Logout"
-                onClick={logout}
-                classes="btn-success logoutBtn">
-            </FormBtn>
-
-
 
         </Container>
     )
 }
-
-export default Home;
+export default About;
