@@ -119,7 +119,7 @@ class Budget extends Component {
     return (
       <div id="budget">
         <Container>
-          <Jumbotron><h1>My Budget</h1></Jumbotron>
+        <h1 class="headText">$ My Budget $</h1>
           {this.state.budget.map(bdgt => (
             <div className="totalbdgt" key={bdgt._id}>
               <Row id="total-budget">

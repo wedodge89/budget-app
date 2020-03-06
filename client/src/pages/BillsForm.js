@@ -100,7 +100,7 @@ this.state= {
             <Container>
                 <Row>
                     <Col size="md-12">
-                        <h1>Add your Bills</h1>
+                    <h1 class="headText">$ Add Bills $</h1>
                     </Col>
                 </Row>
                 <Row>

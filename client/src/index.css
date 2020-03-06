@@ -3,3 +3,18 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@font-face {
+  font-family: "Dollar-Bill";
+  src: local("Dollar-Bill"), url(./fonts/Dollar-Bill.ttf) format("truetype");
+}
+
+.headText {
+  margin-left: -110px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Dollar-Bill";
+  font-size: 48px;
+}
+
+
