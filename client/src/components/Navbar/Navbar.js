@@ -6,7 +6,7 @@ const Navbar = props => {
     return (
         
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary" id="navHeader">
-            <Link className="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/home">
                 Home
             </Link>
             <button className="navbar-toggler" type="button"
