@@ -5,6 +5,13 @@ import Greeting from "../components/Greeting/Greeting";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import Message from "../components/Message/Message";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Roy from "../components/Roy/Roy";
+import Elliot from "../components/Elliott/Elliott";
+import "../pageCss/Home.css"
+
+
+
 
 class Home extends Component {
     render(){
@@ -13,12 +20,30 @@ class Home extends Component {
         <Container>
             <Row>
                 <Col size="md-12">
+                    <Jumbotron fluid>
                 <Greeting />
+                </Jumbotron>
+                </Col>
+            </Row>
+            <Row id="message">
+                <Col size="md-12">
+                <Message />
+                </Col>
+            </Row>
+            {/* <Row>
+                <Col size="md-12">
+                    <Calendar />
+                </Col>
+            </Row> */}
+
+            <Row>
+                <Col size="md-12">
+                    <Roy />
                 </Col>
             </Row>
             <Row>
                 <Col size="md-12">
-                <Message />
+                    <Elliot />
                 </Col>
             </Row>
             
