@@ -5,6 +5,7 @@ import Col from "../components/Col/Col";
 import { FormGroup, Input, Label, FormBtn, } from "../components/Form/Form";
 import API from "../utils/API";
 import {withRouter} from "react-router-dom";
+import "../pageCss/BillsForm.css"
 
 const formValid = ({ formErrors, ...rest }) => {
     let valid = true;
