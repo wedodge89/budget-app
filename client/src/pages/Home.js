@@ -6,6 +6,8 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import Message from "../components/Message/Message";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import Roy from "../components/Roy/Roy";
+import Elliot from "../components/Elliott/Elliott";
 import "../pageCss/Home.css"
 
 
@@ -28,9 +30,20 @@ class Home extends Component {
                 <Message />
                 </Col>
             </Row>
-            <Row>
+            {/* <Row>
                 <Col size="md-12">
                     <Calendar />
+                </Col>
+            </Row> */}
+
+            <Row>
+                <Col size="md-12">
+                    <Roy />
+                </Col>
+            </Row>
+            <Row>
+                <Col size="md-12">
+                    <Elliot />
                 </Col>
             </Row>
             
