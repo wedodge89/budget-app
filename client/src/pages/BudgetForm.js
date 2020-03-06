@@ -122,7 +122,7 @@ class BudgetForm extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <h1>Determine your Budget</h1>
+            <h1 class="headText">$ Build Your Budget $</h1>
             </Col>
           </Row>
 

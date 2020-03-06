@@ -1,10 +1,23 @@
 .billCard {
     width: 25vw;
-    margin: 10px;
+    margin: auto;
     border: 2px solid black !important;
+
 }
 
 #billCardCol {
     height: 45vw;
     overflow-y: scroll;
+}
+
+.bill-category {
+    text-transform: capitalize;
+}
+
+.updateBillButton {
+    margin: 10px;
+}
+
+.deleteBillButton {
+    margin: 10px;
 }

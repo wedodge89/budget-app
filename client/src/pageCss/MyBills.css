@@ -1,9 +1,26 @@
 
 #paidBillCardCol {
 text-align: center;
-
+height: 37vw;
+overflow-y: scroll;
 }
 #unPaidBillCardCol {
 text-align: center;
-
+height: 37vw;
+overflow-y: scroll;
 }
+
+.paidBillHeader {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.unPaidBillHeader {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+/* make media query to move unpaid header underneath paidbill column at 770px width */
