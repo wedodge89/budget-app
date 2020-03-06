@@ -1,7 +1,10 @@
 .billCard {
     width: 25vw;
     margin: auto;
-    border: 2px solid black !important;
+    border: 5px solid black !important;
+    margin-bottom: 10px;
+    /* background-color: lightgreen !important; */
+    background-image: url("https://thumbs.dreamstime.com/b/gray-white-money-bag-repeat-pattern-background-seamless-repeats-44585024.jpg");
 
 }
 
@@ -16,8 +19,22 @@
 
 .updateBillButton {
     margin: 10px;
+    border: 2px black solid;
 }
 
 .deleteBillButton {
     margin: 10px;
+    border: 2px black solid;
+}
+
+.card-text {
+    font-weight: bold;
+    background-color: white;
+    margin: auto;
+}
+
+.billCardBody {
+    padding: 0px;
+    display: inline;
+    background-color: lightgray;
 }

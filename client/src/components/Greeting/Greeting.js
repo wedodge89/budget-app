@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "./../../compCss/Greeting.css"
 // import { text } from "express";
 
 class Greeting extends Component {
@@ -36,7 +37,7 @@ class Greeting extends Component {
         return (
             <div>
               <h1>
-                Welcome, {this.state.firstname}!
+                <p className="greeting">Welcome, {this.state.firstname}!</p>
               </h1>
           </div>
       )
