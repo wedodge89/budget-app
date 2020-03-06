@@ -51,6 +51,7 @@ class Bills extends Component {
       })
       .catch(err => console.log(err));
     console.log("click working")
+    this.props.history.push("/home")
 
   }
   updateBill = (id) => {

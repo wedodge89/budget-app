@@ -5,6 +5,7 @@ import Col from "../components/Col/Col";
 import API from "../utils/API";
 import ProgressBar from "react-bootstrap/ProgressBar"
 import Jumbotron from "react-bootstrap/Jumbotron";
+import { withRouter } from "react-router-dom";
 import "../pageCss/MyBudget.css";
 
 
@@ -12,7 +13,7 @@ class Budget extends Component {
 
 
   state = {
-    budget: [],
+    budget: null,
     id: "",
     total: 0,
     rent: 0,
@@ -41,12 +42,10 @@ class Budget extends Component {
   getMyBudget = () => {
     API.getBudget()
       .then(res => {
-        let myBudget = res.data;
-        console.log(myBudget._id)
-        for (let i = 0; i < myBudget.length; i++) {
-          this.setState({
-            budget: myBudget.concat()
-          })
+        let myBudget = res.data[0].budget;
+        console.log(myBudget);
+        if(typeof(myBudget) == "object") {
+          this.setState({budget: myBudget});
         }
         console.log(this.state.budget)
       })
@@ -108,6 +107,7 @@ class Budget extends Component {
       .catch(err => console.log(err));
     console.log("click working")
     console.log(id)
+    this.props.history.push("/budgetform")
   }
 
 
@@ -116,108 +116,103 @@ class Budget extends Component {
 
 
   render() {
-    return (
-      <div id="budget">
-        <Container>
-        <h1 class="headText">$ My Budget $</h1>
-          {this.state.budget.map(bdgt => (
-            <div className="totalbdgt" key={bdgt._id}>
-              <Row id="total-budget">
-                <Col size="md-12" >
-                  <h2>My Total Monthly Budget is: ${bdgt.budget.total} You have spent: ${this.state.total}</h2>
+      if (!this.state.budget) {
+        return <Jumbotron><h1>Sorry, you have not created a budget!</h1></Jumbotron>
+      }
+      return (
+        <div id="budget">
+          <Container>
+            <Jumbotron><h1>My Budget</h1></Jumbotron>
+              <div className="totalbdgt">
+                <Row id="total-budget">
+                  <Col size="md-12" >
+                    <h2>My Total Monthly Budget is: ${this.state.budget.total} You have spent: ${this.state.total}</h2>
 
-                </Col>
-              </Row>
-              <Row id="total-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.total}`) / parseFloat(`${bdgt.budget.total}`) * 100} striped variant={(parseFloat(`${this.state.total}`) / parseFloat(`${bdgt.budget.total}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.total}`) / parseFloat(`${bdgt.budget.total}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
+                  </Col>
+                </Row>
+                <Row id="total-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.total}`) / parseFloat(`${this.state.budget.total}`) * 100} striped variant={(parseFloat(`${this.state.total}`) / parseFloat(`${this.state.budget.total}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.total}`) / parseFloat(`${this.state.budget.total}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
 
-            </div>
-          ))}
-
-          {this.state.budget.map(myBdgt => (
-
-
-            <div className="budgetCat" key={myBdgt._id}>
-              <Row id="rent-row">
-                <Col size="md-12">
-                  <h3>Rent/Mortgage</h3> <h4>Budget: ${myBdgt.budget.rent} You have spent: ${this.state.rent}</h4>
-                </Col>
-              </Row>
-              <Row id="rent-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100} variant={(parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.rent}`) / parseFloat(`${myBdgt.budget.rent}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
+              </div>
 
 
-              <Row id="car-row">
-                <Col size="md-12">
-                  <h3>Car/Insurance</h3> <h4>Budget: ${myBdgt.budget.car} You have spent: ${this.state.car}</h4>
-                </Col>
-              </Row>
-              <Row id="car-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100} variant={(parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.car}`) / parseFloat(`${myBdgt.budget.car}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
+              <div className="budgetCat">
+                <Row id="rent-row">
+                  <Col size="md-12">
+                    <h3>Rent/Mortgage</h3> <h4>Budget: ${this.state.budget.rent} You have spent: ${this.state.rent}</h4>
+                  </Col>
+                </Row>
+                <Row id="rent-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100} variant={(parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
 
 
-              <Row id="utility-row">
-                <Col size="md-12">
-                  <h3>Utilities</h3> <h4>Budget: ${myBdgt.budget.utility} You have spent: ${this.state.utility}</h4>
-                </Col>
-              </Row>
-              <Row id="utility-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100} variant={(parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.utility}`) / parseFloat(`${myBdgt.budget.utility}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
+                <Row id="car-row">
+                  <Col size="md-12">
+                    <h3>Car/Insurance</h3> <h4>Budget: ${this.state.budget.car} You have spent: ${this.state.car}</h4>
+                  </Col>
+                </Row>
+                <Row id="car-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.car}`) / parseFloat(`${this.state.budget.car}`) * 100} variant={(parseFloat(`${this.state.car}`) / parseFloat(`${this.state.budget.car}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.car}`) / parseFloat(`${this.state.budget.car}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
 
-              <Row id="food-row">
-                <Col size="md-12">
-                  <h3>Food/Gas</h3> <h4>Budget: ${myBdgt.budget.food} You have spent: ${this.state.food}</h4>
-                </Col>
-              </Row>
-              <Row id="food-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100} variant={(parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.food}`) / parseFloat(`${myBdgt.budget.food}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
 
-              <Row id="school-row">
-                <Col size="md-12">
-                  <h3>School/Tuition</h3> <h4>Budget: ${myBdgt.budget.school} You have spent: ${this.state.school}</h4>
-                </Col>
-              </Row>
-              <Row id="school-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.school}`) / parseFloat(`${myBdgt.budget.school}`) * 100} variant={(parseFloat(`${this.state.school}`) / parseFloat(`${myBdgt.budget.school}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.school}`) / parseFloat(`${myBdgt.budget.school}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
+                <Row id="utility-row">
+                  <Col size="md-12">
+                    <h3>Utilities</h3> <h4>Budget: ${this.state.budget.utility} You have spent: ${this.state.utility}</h4>
+                  </Col>
+                </Row>
+                <Row id="utility-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.utility}`) / parseFloat(`${this.state.budget.utility}`) * 100} variant={(parseFloat(`${this.state.utility}`) / parseFloat(`${this.state.budget.utility}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.utility}`) / parseFloat(`${this.state.budget.utility}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
 
-              <Row id="misc-row">
-                <Col size="md-12">
-                  <h3>Miscellaneous</h3> <h4>Budget: ${myBdgt.budget.misc} You have spent: ${this.state.misc}</h4>
-                </Col>
-              </Row>
-              <Row id="misc-progress">
-                <Col size="md-12">
-                  <ProgressBar now={parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100} variant={(parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.misc}`) / parseFloat(`${myBdgt.budget.misc}`) * 100) < 85 ? "warning" : "danger"} />
-                </Col>
-              </Row>
-              <button id="budget-btn" className="btn btn-success" onClick={() => this.deleteBudget(myBdgt.budget._id)} >Delete</button>
+                <Row id="food-row">
+                  <Col size="md-12">
+                    <h3>Food/Gas</h3> <h4>Budget: ${this.state.budget.food} You have spent: ${this.state.food}</h4>
+                  </Col>
+                </Row>
+                <Row id="food-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.food}`) / parseFloat(`${this.state.budget.food}`) * 100} variant={(parseFloat(`${this.state.food}`) / parseFloat(`${this.state.budget.food}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.food}`) / parseFloat(`${this.state.budget.food}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
 
-            </div>
+                <Row id="school-row">
+                  <Col size="md-12">
+                    <h3>School/Tuition</h3> <h4>Budget: ${this.state.budget.school} You have spent: ${this.state.school}</h4>
+                  </Col>
+                </Row>
+                <Row id="school-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.school}`) / parseFloat(`${this.state.budget.school}`) * 100} variant={(parseFloat(`${this.state.school}`) / parseFloat(`${this.state.budget.school}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.school}`) / parseFloat(`${this.state.budget.school}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
 
-          ))}
+                <Row id="misc-row">
+                  <Col size="md-12">
+                    <h3>Miscellaneous</h3> <h4>Budget: ${this.state.budget.misc} You have spent: ${this.state.misc}</h4>
+                  </Col>
+                </Row>
+                <Row id="misc-progress">
+                  <Col size="md-12">
+                    <ProgressBar now={parseFloat(`${this.state.misc}`) / parseFloat(`${this.state.budget.misc}`) * 100} variant={(parseFloat(`${this.state.misc}`) / parseFloat(`${this.state.budget.misc}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.misc}`) / parseFloat(`${this.state.budget.misc}`) * 100) < 85 ? "warning" : "danger"} />
+                  </Col>
+                </Row>
+                <button id="budget-btn" className="btn btn-success" onClick={() => this.deleteBudget(this.state.budget._id)} >Delete</button>
 
-        </Container>
-      </div>
-    )
-
+              </div>
+          </Container>
+        </div>
+      )
   }
 }
-export default Budget;
+export default withRouter(Budget);

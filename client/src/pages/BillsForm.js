@@ -150,7 +150,7 @@ this.state= {
 
                             <FormGroup>
                                 <Label text="Due Date" />
-                                <Input type="text" 
+                                <Input type="date" 
                                     className={formErrors.date.length > 0 ? "error" : null}
                                     name="date"
                                     noValidate
