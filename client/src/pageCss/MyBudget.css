@@ -1,3 +1,12 @@
+.jumbotron{
+    background-image: url("/images/money.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    color: white;
+    text-align: center;
+}
+
 #total-budget   {
     margin-top: 10px;
     margin-left: auto;
@@ -55,3 +64,9 @@
 #budget-btn {
     margin-top: 10px;
 }
+  
+  .errorMessage {
+    color: red;
+    font-size: 0.75em;
+    display: relative;
+  }
