@@ -122,11 +122,14 @@ class Budget extends Component {
       return (
         <div id="budget">
           <Container>
-            <Jumbotron><h1>My Budget</h1></Jumbotron>
+            <h1 class="headText">$ My Budgets $</h1>
               <div className="totalbdgt">
                 <Row id="total-budget">
                   <Col size="md-12" >
-                    <h2>My Total Monthly Budget is: ${this.state.budget.total} You have spent: ${this.state.total}</h2>
+                    <h2>Total:</h2> 
+                    <h3>Budget: ${this.state.budget.total}</h3>
+                    <h3>Spent: ${this.state.total}</h3>
+                    <h3>Left: ${parseFloat(this.state.budget.total) - parseFloat(this.state.total)}</h3>
 
                   </Col>
                 </Row>
@@ -135,14 +138,18 @@ class Budget extends Component {
                     <ProgressBar now={parseFloat(`${this.state.total}`) / parseFloat(`${this.state.budget.total}`) * 100} striped variant={(parseFloat(`${this.state.total}`) / parseFloat(`${this.state.budget.total}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.total}`) / parseFloat(`${this.state.budget.total}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
                 </Row>
+                <hr></hr>
 
               </div>
 
 
               <div className="budgetCat">
-                <Row id="rent-row">
+                <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Rent/Mortgage</h3> <h4>Budget: ${this.state.budget.rent} You have spent: ${this.state.rent}</h4>
+                    <h3>Rent/Mortgage</h3> 
+                    <h4>Budget: ${this.state.budget.rent}</h4> 
+                    <h4>Spent: ${this.state.rent}</h4>
+                    <h4>Left: ${parseFloat(this.state.budget.rent) - parseFloat(this.state.rent)}</h4>
                   </Col>
                 </Row>
                 <Row id="rent-progress">
@@ -150,11 +157,15 @@ class Budget extends Component {
                     <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100} variant={(parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
                 </Row>
+                
+                <hr></hr>
 
-
-                <Row id="car-row">
+                <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Car/Insurance</h3> <h4>Budget: ${this.state.budget.car} You have spent: ${this.state.car}</h4>
+                    <h3>Car/Insurance</h3>
+                    <h4>Budget: ${this.state.budget.car}</h4>
+                    <h4>Spent: ${this.state.car}</h4>
+                    <h4>Left: ${parseFloat(this.state.budget.car) - parseFloat(this.state.car)}</h4>
                   </Col>
                 </Row>
                 <Row id="car-progress">
@@ -163,10 +174,14 @@ class Budget extends Component {
                   </Col>
                 </Row>
 
+                <hr></hr>
 
-                <Row id="utility-row">
+                <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Utilities</h3> <h4>Budget: ${this.state.budget.utility} You have spent: ${this.state.utility}</h4>
+                    <h3>Utilities</h3>
+                    <h4>Budget: ${this.state.budget.utility}</h4>
+                    <h4>Spent: ${this.state.utility}</h4>
+                    <h4>Left: ${parseFloat(this.state.budget.utility) - parseFloat(this.state.utility)}</h4>
                   </Col>
                 </Row>
                 <Row id="utility-progress">
@@ -175,9 +190,14 @@ class Budget extends Component {
                   </Col>
                 </Row>
 
-                <Row id="food-row">
+                <hr></hr>
+
+                <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Food/Gas</h3> <h4>Budget: ${this.state.budget.food} You have spent: ${this.state.food}</h4>
+                    <h3>Food/Gas</h3>
+                    <h4>Budget: ${this.state.budget.food}</h4>
+                    <h4>Spent: ${this.state.food}</h4>
+                    <h4>Left: ${parseFloat(this.state.budget.food) - parseFloat(this.state.food)}</h4>
                   </Col>
                 </Row>
                 <Row id="food-progress">
@@ -186,9 +206,14 @@ class Budget extends Component {
                   </Col>
                 </Row>
 
-                <Row id="school-row">
+                <hr></hr>
+
+                <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>School/Tuition</h3> <h4>Budget: ${this.state.budget.school} You have spent: ${this.state.school}</h4>
+                    <h3>School/Tuition</h3>
+                    <h4>Budget: ${this.state.budget.school}</h4>
+                    <h4>Spent: ${this.state.school}</h4>
+                    <h4>Left: ${parseFloat(this.state.budget.school) - parseFloat(this.state.school)}</h4>
                   </Col>
                 </Row>
                 <Row id="school-progress">
@@ -197,9 +222,14 @@ class Budget extends Component {
                   </Col>
                 </Row>
 
-                <Row id="misc-row">
+                <hr></hr>
+
+                <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Miscellaneous</h3> <h4>Budget: ${this.state.budget.misc} You have spent: ${this.state.misc}</h4>
+                    <h3>Miscellaneous</h3>
+                    <h4>Budget: ${this.state.budget.misc}</h4>
+                    <h4>Spent: ${this.state.misc}</h4>
+                    <h4>Left: ${parseFloat(this.state.budget.misc) - parseFloat(this.state.misc)}</h4>
                   </Col>
                 </Row>
                 <Row id="misc-progress">
