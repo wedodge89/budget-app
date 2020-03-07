@@ -126,7 +126,7 @@ class Budget extends Component {
               <div className="totalbdgt">
                 <Row id="total-budget">
                   <Col size="md-12" >
-                    <h2>Total:</h2> 
+                    <h2>💵 Total:</h2> 
                     <h3>Budget: ${this.state.budget.total}</h3>
                     <h3>Spent: ${this.state.total}</h3>
                     <h3>Left: ${parseFloat(this.state.budget.total) - parseFloat(this.state.total)}</h3>
@@ -146,7 +146,7 @@ class Budget extends Component {
               <div className="budgetCat">
                 <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Rent/Mortgage</h3> 
+                    <h3>🏠 Rent/Mortgage</h3> 
                     <h4>Budget: ${this.state.budget.rent}</h4> 
                     <h4>Spent: ${this.state.rent}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.rent) - parseFloat(this.state.rent)}</h4>
@@ -162,7 +162,7 @@ class Budget extends Component {
 
                 <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Car/Insurance</h3>
+                    <h3>🚗 Car/Insurance</h3>
                     <h4>Budget: ${this.state.budget.car}</h4>
                     <h4>Spent: ${this.state.car}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.car) - parseFloat(this.state.car)}</h4>
@@ -178,7 +178,7 @@ class Budget extends Component {
 
                 <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Utilities</h3>
+                    <h3>🔌 Utilities</h3>
                     <h4>Budget: ${this.state.budget.utility}</h4>
                     <h4>Spent: ${this.state.utility}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.utility) - parseFloat(this.state.utility)}</h4>
@@ -194,7 +194,7 @@ class Budget extends Component {
 
                 <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Food/Gas</h3>
+                    <h3>🍔 Food/Gas</h3>
                     <h4>Budget: ${this.state.budget.food}</h4>
                     <h4>Spent: ${this.state.food}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.food) - parseFloat(this.state.food)}</h4>
@@ -210,7 +210,7 @@ class Budget extends Component {
 
                 <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>School/Tuition</h3>
+                    <h3>📚 School/Tuition</h3>
                     <h4>Budget: ${this.state.budget.school}</h4>
                     <h4>Spent: ${this.state.school}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.school) - parseFloat(this.state.school)}</h4>
@@ -226,7 +226,7 @@ class Budget extends Component {
 
                 <Row className="budget-row">
                   <Col size="md-12">
-                    <h3>Miscellaneous</h3>
+                    <h3>📦 Miscellaneous</h3>
                     <h4>Budget: ${this.state.budget.misc}</h4>
                     <h4>Spent: ${this.state.misc}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.misc) - parseFloat(this.state.misc)}</h4>
