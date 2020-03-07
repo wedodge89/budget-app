@@ -120,9 +120,9 @@ class App extends Component {
               </Route>  
 
               <Route exact path="/about">
-               (
+               
                 <About /> 
-              ) 
+              
               </Route>       
      
 
