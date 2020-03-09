@@ -65,7 +65,7 @@ class App extends Component {
             <Route exact path="/home">
               {this.state.authorized ? (
               <Home logout={this.logout} />) : ( 
-              <Redirect to="/about" />
+              <Redirect to="/" />
               )}</Route>
 
             <Route exact path="/login">
@@ -91,7 +91,7 @@ class App extends Component {
               </Route>
             <Route exact path="/register">
               {this.state.authorized ? (
-                <Redirect to="/" />
+                <Redirect to="/home" />
               ) : (
                 <Register isAuthorized={this.isAuthorized} />
               )}
@@ -119,7 +119,7 @@ class App extends Component {
               )}
               </Route>  
 
-              <Route exact path="/about">
+              <Route exact path="/">
                
                 <About /> 
               
