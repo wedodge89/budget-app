@@ -6,17 +6,43 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { FormBtn } from "../components/Form/Form";
-import "../pageCss/Home.css"
+import dayGridPlugin from '@fullcalendar/daygrid';
+import API from "../utils/API";
+import "../pageCss/Home.css";
+
+export default class  Home extends Component {
+
+    
+  state = {
+    calendarEvents: [ // initial event data
+        { title: "", amount: "", date: "" }
+      ]
+  }
+
+  componentDidMount() {
+    this.getMyBills();
+  }
+  getMyBills = () => {
+    API.getMyBills()
+      .then(res => {
+        let myBills = res.data.bills;
+
+        console.log(myBills)
+        this.setState({
+          calendarEvents: myBills
+        })
+            console.log(myBills[0].amount)
 
 
+      })
+      .catch(err => console.log(err));
+  };
+  
 
-
-
-
-function Home({ logout }) {
-
+    render() {
+        
     return (
-
+        
         <Container>
             <Row>
                 <Col size="md-12">
@@ -27,13 +53,26 @@ function Home({ logout }) {
             </Row>
             
             <Row>
+            
                 <Col size="md-12">
-                    <Calendar />
-                </Col>
+                
+                <Calendar                
+            defaultView="dayGridMonth"
+            header={{
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth'
+            }}
+            plugins={ dayGridPlugin}
+            ref={ this.calendarComponentRef }           
+            events={this.state.calendarEvents}
+            />
+                
+          </Col> 
             </Row>
             <FormBtn
                 text="Logout"
-                onClick={logout}
+                
                 classes="btn-success logoutBtn">
             </FormBtn>
 
@@ -42,5 +81,4 @@ function Home({ logout }) {
         </Container>
     )
 }
-
-export default Home;
+}

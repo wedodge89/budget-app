@@ -6,8 +6,12 @@ import '../../main.scss'
 
 const Calendar = (props) => {
   return (
-    <div>
-    <FullCalendar dateClick={props.dateClick} defaultView="dayGridMonth" plugins={[ dayGridPlugin ]} />
+    <div id="calendar">
+    <FullCalendar 
+    dateClick={props.dateClick} 
+    defaultView="dayGridMonth"
+    events={props.events} 
+    plugins={[ dayGridPlugin ]} />
     </div>
   )
 }
