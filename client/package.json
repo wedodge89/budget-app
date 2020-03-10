@@ -13,9 +13,11 @@
     "@fullcalendar/react": "^4.4.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-calendar": "^2.19.2",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.6.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^2.1.1"

@@ -14,9 +14,9 @@ export default class  Home extends Component {
 
     
   state = {
-    calendarEvents: [ // initial event data
-        { title: "", amount: "", date: "" }
-      ]
+    calendarEvents: [
+        {name: "", date: "", amount: ""}
+    ]
   }
 
   componentDidMount() {
@@ -25,19 +25,17 @@ export default class  Home extends Component {
   getMyBills = () => {
     API.getMyBills()
       .then(res => {
-        let myBills = res.data.bills;
-
+          let myBills = res.data.bills    
         console.log(myBills)
         this.setState({
           calendarEvents: myBills
         })
-            console.log(myBills[0].amount)
-
-
+        console.log(this.state.calendarEvents)
+    
       })
       .catch(err => console.log(err));
   };
-  
+
 
     render() {
         
