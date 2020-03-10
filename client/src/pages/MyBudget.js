@@ -6,6 +6,7 @@ import API from "../utils/API";
 import ProgressBar from "react-bootstrap/ProgressBar"
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { withRouter } from "react-router-dom";
+import PieChart from "../components/PieChart/PieChart";
 import "../pageCss/MyBudget.css";
 
 
@@ -123,6 +124,21 @@ class Budget extends Component {
         <div id="budget">
           <Container>
             <h1 class="headText">$ My Budgets $</h1>
+            <div id="totalBdgt">
+              <h3>Total Budget Pie Chart</h3>
+            <PieChart 
+            options={{
+              responsive: true,
+              maintainAspectRatio: true
+            }}
+            rent={this.state.budget.rent}
+            car={this.state.budget.car}
+            utility={this.state.budget.utility}
+            food={this.state.budget.food}
+            school={this.state.budget.school}
+            misc={this.state.budget.misc}
+            />
+            </div>
               <div className="totalbdgt">
                 <Row id="total-budget">
                   <Col size="md-12" >
@@ -240,6 +256,21 @@ class Budget extends Component {
                 <button id="budget-btn" className="btn btn-success" onClick={() => this.deleteBudget(this.state.budget._id)} >Delete</button>
 
               </div>
+              <div id="bdgtSpent">
+                <h3>Budget Spent Pie Chart</h3>
+              <PieChart 
+            options={{
+              responsive: true,
+              maintainAspectRatio: true
+            }}
+            rent={this.state.rent}
+            car={this.state.car}
+            utility={this.state.utility}
+            food={this.state.food}
+            school={this.state.school}
+            misc={this.state.misc}
+            />
+            </div>
           </Container>
         </div>
       )
