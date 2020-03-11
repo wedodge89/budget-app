@@ -23,3 +23,17 @@
   font-size: 0.75em;
   display: relative;
 }
+
+#budget-piechart    {
+    border: 1px solid lightgreen;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#spent-piechart    {
+    border: 1px solid lightgreen;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

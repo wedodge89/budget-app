@@ -129,7 +129,7 @@ class BudgetForm extends Component {
 
           <Row>
             <Col id="myBudget" size="md-12">
-              <form id="budget"className="align-content-center" onClick={this.submit}>
+              <form id="budgetform"className="align-content-center" onClick={this.submit}>
                 <FormGroup>
                   <Label text="Monthly Total" />
                   <Input type="text" id="monthly-total"
