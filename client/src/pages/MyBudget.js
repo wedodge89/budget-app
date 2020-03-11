@@ -123,8 +123,12 @@ class Budget extends Component {
       return (
         <div id="budget">
           <Container>
+            <div id="budget-header">
             <h1 class="headText">$ My Budgets $</h1>
-            <div id="totalBdgt">
+            </div>
+            <Row id="piecharts">
+              <Col size="md-6">
+            <div id="budget-piechart">
               <h3>Total Budget Pie Chart</h3>
             <PieChart 
             options={{
@@ -139,6 +143,26 @@ class Budget extends Component {
             misc={this.state.budget.misc}
             />
             </div>
+            </Col>
+
+            <Col size="md-6">
+              <div id="spent-piechart">
+            <h3>Budget Spent Pie Chart</h3>
+              <PieChart 
+            options={{
+              responsive: true,
+              maintainAspectRatio: true
+            }}
+            rent={this.state.rent}
+            car={this.state.car}
+            utility={this.state.utility}
+            food={this.state.food}
+            school={this.state.school}
+            misc={this.state.misc}
+            />
+            </div>
+            </Col>
+            </Row>
               <div className="totalbdgt">
                 <Row id="total-budget">
                   <Col size="md-12" >
@@ -256,21 +280,8 @@ class Budget extends Component {
                 <button id="budget-btn" className="btn btn-success" onClick={() => this.deleteBudget(this.state.budget._id)} >Delete</button>
 
               </div>
-              <div id="bdgtSpent">
-                <h3>Budget Spent Pie Chart</h3>
-              <PieChart 
-            options={{
-              responsive: true,
-              maintainAspectRatio: true
-            }}
-            rent={this.state.rent}
-            car={this.state.car}
-            utility={this.state.utility}
-            food={this.state.food}
-            school={this.state.school}
-            misc={this.state.misc}
-            />
-            </div>
+              
+            
           </Container>
         </div>
       )

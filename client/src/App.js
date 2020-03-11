@@ -12,6 +12,7 @@ import BillsForm from "./pages/BillsForm";
 import Update from "./pages/UpdateBills"
 import About from "./pages/About";
 import API from "./utils/API";
+import Logout from "./pages/Logout";
 
 class App extends Component {
 
@@ -60,11 +61,11 @@ class App extends Component {
     return (
       <Router>
         
-          <Navbar />
+          <Navbar logout={this.logout}/>
           
             <Route exact path="/home">
               {this.state.authorized ? (
-              <Home logout={this.logout} />) : ( 
+              <Home  />) : ( 
               <Redirect to="/" />
               )}</Route>
 
@@ -123,6 +124,14 @@ class App extends Component {
                
                 <About /> 
               
+              </Route>      
+
+              <Route exact path="/logout">
+              {this.state.authorized ? 
+                <Logout logout={this.logout} /> 
+               : 
+                <Redirect to="/login" />
+              }
               </Route>       
      
 

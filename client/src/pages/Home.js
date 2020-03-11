@@ -10,37 +10,43 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import API from "../utils/API";
 import "../pageCss/Home.css";
 
-export default class  Home extends Component {
-
+ class  Home extends Component {
     
-  state = {
+    state = {
     calendarEvents: [
-        {name: "", date: "", amount: ""}
+        {title: "", date: "", amount: ""}
     ]
   }
-
+    
   componentDidMount() {
     this.getMyBills();
   }
   getMyBills = () => {
     API.getMyBills()
       .then(res => {
-          let myBills = res.data.bills    
-        console.log(myBills)
+          let myBills = res.data.bills;
+          for(let i = 0; i < myBills.length; i++) {   
+          let title = myBills[i].name;
+          let date = myBills[i].date;
+          let amount = myBills[i].amount;          
+        
         this.setState({
-          calendarEvents: myBills
+          calendarEvents: {title: title, date: date, amount: amount}
         })
         console.log(this.state.calendarEvents)
-    
+          }
       })
       .catch(err => console.log(err));
   };
 
+  
+
+  
 
     render() {
-        
+
     return (
-        
+                
         <Container>
             <Row>
                 <Col size="md-12">
@@ -70,7 +76,7 @@ export default class  Home extends Component {
             </Row>
             <FormBtn
                 text="Logout"
-                
+               
                 classes="btn-success logoutBtn">
             </FormBtn>
 
@@ -80,3 +86,4 @@ export default class  Home extends Component {
     )
 }
 }
+export default Home;
