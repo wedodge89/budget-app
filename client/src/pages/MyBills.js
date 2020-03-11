@@ -124,11 +124,20 @@ class Bills extends Component {
             <h3 class="unPaidBillHeader">My UnPaid Bills</h3>
         </Row>
         <Row>
-          <Col size="md-6" id="paidBillCardCol">
+          <Col size="md-1">
+
+          </Col>
+          <Col size="md-4" id="paidBillCardCol">
             {this.paidBills}
           </Col>
-          <Col size="md-6" id="unPaidBillCardCol">
+          <Col size="md-2">
+
+          </Col>
+          <Col size="md-4" id="unPaidBillCardCol">
             {this.unPaidBills}
+          </Col>
+          <Col size="md-1">
+            
           </Col>
         </Row>
       </Container>

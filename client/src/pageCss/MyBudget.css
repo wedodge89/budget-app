@@ -18,8 +18,8 @@
     margin-top: 10px;
 }
   
-  .errorMessage {
-    color: red;
-    font-size: 0.75em;
-    display: relative;
-  }
+.errorMessage {
+  color: red;
+  font-size: 0.75em;
+  display: relative;
+}
