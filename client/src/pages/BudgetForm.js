@@ -5,6 +5,7 @@ import Col from "../components/Col/Col";
 import { FormGroup, Input, Label, FormBtn } from "../components/Form/Form";
 import API from "../utils/API";
 import { withRouter } from "react-router-dom";
+import "../pageCss/BudgetForm.css";
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
@@ -120,18 +121,18 @@ class BudgetForm extends Component {
     return (
       <div>
         <Container>
-          <Row>
+          <Row >
             <Col size="md-12">
             <h1 class="headText">$ Build Your Budget $</h1>
             </Col>
           </Row>
 
           <Row>
-            <Col size="md-12">
-              <form onClick={this.submit}>
+            <Col id="myBudget" size="md-12">
+              <form id="budgetform"className="align-content-center" onClick={this.submit}>
                 <FormGroup>
                   <Label text="Monthly Total" />
-                  <Input type="text"
+                  <Input type="text" id="monthly-total"
                     className={formErrors.total.length > 0 ? "error" : null}
                     name="total"
                     noValidate
@@ -168,7 +169,7 @@ class BudgetForm extends Component {
                     value={this.state.car}
                     onChange={this.handleInputChange}
                     className="form-control" id="car"
-                    placeholder="Enter your total for Car payments/insurance here." />
+                    placeholder="Enter your total for Car Payments/Insurance here." />
                   {formErrors.car.length > 0 && (
                     <span className="errorMessage">{formErrors.car}</span>
                   )}
@@ -213,7 +214,7 @@ class BudgetForm extends Component {
                     value={this.state.school}
                     onChange={this.handleInputChange}
                     className="form-control" id="school"
-                    placeholder="Enter your total for Tuitions/School loans here." />
+                    placeholder="Enter your total for Tuitions/School Loans here." />
                   {formErrors.school.length > 0 && (
                     <span className="errorMessage">{formErrors.school}</span>
                   )}

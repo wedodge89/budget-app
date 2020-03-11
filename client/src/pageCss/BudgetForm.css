@@ -1,0 +1,10 @@
+#budgetform {
+    background-color: lightgreen;
+    border: 2px solid black;
+    padding: 5px;
+    
+}
+
+label{
+    font-weight: bolder;
+}

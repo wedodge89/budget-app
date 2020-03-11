@@ -1,6 +1,16 @@
- 
   .errorMessage {
     color: red;
     font-size: 0.75em;
     display: relative;
   }
+
+  #bills {
+    background-color: lightgreen;
+    border: 2px solid black;
+    padding: 5px;
+    
+}
+
+label{
+    font-weight: bolder;
+}

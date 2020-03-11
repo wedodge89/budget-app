@@ -121,7 +121,7 @@ class Budget extends Component {
         return <Jumbotron><h1>Sorry, you have not created a budget!</h1></Jumbotron>
       }
       return (
-        <div id="budget">
+        <div id="budgets">
           <Container>
             <div id="budget-header">
             <h1 class="headText">$ My Budgets $</h1>

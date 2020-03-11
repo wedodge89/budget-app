@@ -106,7 +106,7 @@ this.state= {
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <form onClick={this.billSubmit }>
+                        <form id="bills" onClick={this.billSubmit }>
                             <FormGroup>
                                 <Label text="Name" />
                                 <Input type="text" 
