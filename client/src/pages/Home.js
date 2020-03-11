@@ -31,7 +31,7 @@ import "../pageCss/Home.css";
           let amount = myBills[i].amount;          
         
         this.setState({
-          calendarEvents: {title: title, date: date, amount: amount}
+          calendarEvents: myBills
         })
         console.log(this.state.calendarEvents)
           }
