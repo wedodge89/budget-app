@@ -5,7 +5,7 @@ import Greeting from "../components/Greeting/Greeting";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import { FormBtn } from "../components/Form/Form";
+import moment from "moment";
 import dayGridPlugin from '@fullcalendar/daygrid';
 import API from "../utils/API";
 import "../pageCss/Home.css";
@@ -24,18 +24,15 @@ import "../pageCss/Home.css";
   getMyBills = () => {
     API.getMyBills()
       .then(res => {
-          let myBills = res.data.bills;
-          for(let i = 0; i < myBills.length; i++) {   
-          let title = myBills[i].name;
-          let date = myBills[i].date;
-          let amount = myBills[i].amount;          
-        
-        this.setState({
-          calendarEvents: myBills
-        })
-        console.log(this.state.calendarEvents)
-          }
-      })
+        let myBills = [];
+        for (let i = 0; i < res.data.bills.length; i++) {
+          let title = res.data.bills[i].name + " " + res.data.bills[i].amount;
+          let date = moment(res.data.bills[i].date).format("YYYY-MM-DD");
+          myBills.push({title, date});
+        }
+        this.setState({calendarEvents: myBills})
+        })          
+      
       .catch(err => console.log(err));
   };
 
