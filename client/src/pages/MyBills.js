@@ -5,7 +5,6 @@ import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
 import { withRouter } from "react-router-dom";
-import Jumbotron from "react-bootstrap/Jumbotron";
 import "../pageCss/MyBills.css";
 
 class Bills extends Component {
