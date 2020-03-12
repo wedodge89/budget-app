@@ -118,9 +118,9 @@ class Update extends Component {
 
                             <FormGroup>
                                 <Label text="Due Date" />
-                                <Input type="date"
+                                <input type="date"
                                     name="date"
-                                    value={moment(this.state.date).format("MM/DD/YYYY")}
+                                    value={this.state.date}
                                     onChange={this.handleInputChange}
                                     className="form-control" id="date"
                                     placeholder="MM/DD/YYYY" />

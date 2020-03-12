@@ -7,6 +7,7 @@ import API from "../utils/API";
 import {withRouter} from "react-router-dom";
 import "../pageCss/BillsForm.css"
 
+
 const formValid = ({ formErrors, ...rest }) => {
     let valid = true;
 // validate form errors being empty
@@ -151,13 +152,14 @@ this.state= {
 
                             <FormGroup>
                                 <Label text="Due Date" />
-                                <Input type="date" 
+                                <input type="date"
+                                   
                                     className={formErrors.date.length > 0 ? "error" : null}
                                     name="date"
                                     noValidate
                                     value={this.state.date}
-                                    onChange={this.handleInputChange}
-                                    className="form-control" id="date"
+                                    className="form-control" id="date" 
+                                    onChange={this.handleInputChange}                                    
                                     placeholder="MM/DD/YYYY" />
                                     {formErrors.date.length > 0 && (
                                     <span className="errorMessage">{formErrors.date}</span>
