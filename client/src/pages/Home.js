@@ -74,14 +74,6 @@ import "../pageCss/Home.css";
                 
           </Col> 
             </Row>
-            <FormBtn
-                text="Logout"
-               
-                classes="btn-success logoutBtn">
-            </FormBtn>
-
-
-
         </Container>
     )
 }
