@@ -19,7 +19,7 @@ const Roy = (props) => {
                     <p>
                     Roy Davis is a retail professional with IT training who is making the move into Web Development and Software Engineering.</p>
 
-                    <p>Having worked his way from a bagger in high school to his current role as a department manager, Roy is ready to take the project and people management skills he has developed, as well as his IT training, to use code to turn ideas into reality.
+                    <p>Having worked his way from a bagger in high school to his current role as a Grocery Replenishment Specialist, Roy is ready to take the project and people management skills he has developed, as well as his IT training, to use code to turn ideas into reality.
                     </p>
                 </Col>
             </Row>

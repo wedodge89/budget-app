@@ -184,96 +184,57 @@ class Budget extends Component {
 
 
               <div className="budgetCat">
-                <Row className="budget-row">
-                  <Col size="md-12">
+                <Row>
+                  <Col size="sm-6">
                     <h3>🏠 Rent/Mortgage</h3> 
                     <h4>Budget: ${this.state.budget.rent}</h4> 
                     <h4>Spent: ${this.state.rent}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.rent) - parseFloat(this.state.rent)}</h4>
-                  </Col>
-                </Row>
-                <Row id="rent-progress">
-                  <Col size="md-12">
                     <ProgressBar now={parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100} variant={(parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.rent}`) / parseFloat(`${this.state.budget.rent}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
-                </Row>
-                
-                <hr></hr>
-
-                <Row className="budget-row">
-                  <Col size="md-12">
+                  <Col size="sm-6">
                     <h3>🚗 Car/Insurance</h3>
                     <h4>Budget: ${this.state.budget.car}</h4>
                     <h4>Spent: ${this.state.car}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.car) - parseFloat(this.state.car)}</h4>
-                  </Col>
-                </Row>
-                <Row id="car-progress">
-                  <Col size="md-12">
                     <ProgressBar now={parseFloat(`${this.state.car}`) / parseFloat(`${this.state.budget.car}`) * 100} variant={(parseFloat(`${this.state.car}`) / parseFloat(`${this.state.budget.car}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.car}`) / parseFloat(`${this.state.budget.car}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
                 </Row>
 
                 <hr></hr>
 
-                <Row className="budget-row">
-                  <Col size="md-12">
+                <Row>
+                  <Col size="sm-6">
                     <h3>🔌 Utilities</h3>
                     <h4>Budget: ${this.state.budget.utility}</h4>
                     <h4>Spent: ${this.state.utility}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.utility) - parseFloat(this.state.utility)}</h4>
-                  </Col>
-                </Row>
-                <Row id="utility-progress">
-                  <Col size="md-12">
                     <ProgressBar now={parseFloat(`${this.state.utility}`) / parseFloat(`${this.state.budget.utility}`) * 100} variant={(parseFloat(`${this.state.utility}`) / parseFloat(`${this.state.budget.utility}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.utility}`) / parseFloat(`${this.state.budget.utility}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
-                </Row>
-
-                <hr></hr>
-
-                <Row className="budget-row">
-                  <Col size="md-12">
+                  <Col size="md-6">
                     <h3>🍔 Food/Gas</h3>
                     <h4>Budget: ${this.state.budget.food}</h4>
                     <h4>Spent: ${this.state.food}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.food) - parseFloat(this.state.food)}</h4>
-                  </Col>
-                </Row>
-                <Row id="food-progress">
-                  <Col size="md-12">
                     <ProgressBar now={parseFloat(`${this.state.food}`) / parseFloat(`${this.state.budget.food}`) * 100} variant={(parseFloat(`${this.state.food}`) / parseFloat(`${this.state.budget.food}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.food}`) / parseFloat(`${this.state.budget.food}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
                 </Row>
 
                 <hr></hr>
 
-                <Row className="budget-row">
-                  <Col size="md-12">
+                <Row>
+                  <Col size="md-6">
                     <h3>📚 School/Tuition</h3>
                     <h4>Budget: ${this.state.budget.school}</h4>
                     <h4>Spent: ${this.state.school}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.school) - parseFloat(this.state.school)}</h4>
-                  </Col>
-                </Row>
-                <Row id="school-progress">
-                  <Col size="md-12">
                     <ProgressBar now={parseFloat(`${this.state.school}`) / parseFloat(`${this.state.budget.school}`) * 100} variant={(parseFloat(`${this.state.school}`) / parseFloat(`${this.state.budget.school}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.school}`) / parseFloat(`${this.state.budget.school}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
-                </Row>
-
-                <hr></hr>
-
-                <Row className="budget-row">
-                  <Col size="md-12">
+                  <Col size="md-6">
                     <h3>📦 Miscellaneous</h3>
                     <h4>Budget: ${this.state.budget.misc}</h4>
                     <h4>Spent: ${this.state.misc}</h4>
                     <h4>Left: ${parseFloat(this.state.budget.misc) - parseFloat(this.state.misc)}</h4>
-                  </Col>
-                </Row>
-                <Row id="misc-progress">
-                  <Col size="md-12">
                     <ProgressBar now={parseFloat(`${this.state.misc}`) / parseFloat(`${this.state.budget.misc}`) * 100} variant={(parseFloat(`${this.state.misc}`) / parseFloat(`${this.state.budget.misc}`) * 100) < 50 ? "success" : (parseFloat(`${this.state.misc}`) / parseFloat(`${this.state.budget.misc}`) * 100) < 85 ? "warning" : "danger"} />
                   </Col>
                 </Row>
