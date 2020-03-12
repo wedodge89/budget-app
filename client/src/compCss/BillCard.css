@@ -3,7 +3,6 @@
     margin: auto;
     border: 5px solid black !important;
     margin-bottom: 10px;
-    /* background-color: lightgreen !important; */
     background-image: url("https://thumbs.dreamstime.com/b/gray-white-money-bag-repeat-pattern-background-seamless-repeats-44585024.jpg");
 
 }
@@ -37,4 +36,5 @@
     padding: 0px;
     display: inline;
     background-color: lightgray;
+    max-width: 90%;
 }
