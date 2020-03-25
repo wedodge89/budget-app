@@ -4,6 +4,8 @@
 
 Full-stack application where users can create a budget, track spending, and plan for upcoming bills.
 
+https://stormy-beyond-27196.herokuapp.com/
+
 ## How to Use
 
 To start, the user will only be allowed access to the Register or Login pages. Upon registering as a new user or logging in as an existing user, they will be able to access all of the application's pages. They will also have a personalized greeting with their first name printed to the navbar for all subsequent pages. 
