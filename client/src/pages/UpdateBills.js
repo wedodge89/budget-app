@@ -120,10 +120,12 @@ class Update extends Component {
                                 <Label text="Due Date" />
                                 <input type="date"
                                     name="date"
-                                    value={this.state.date}
+
+                                    value={moment(this.state.date).format("YYYY/MM/DD")}
+
                                     onChange={this.handleInputChange}
                                     className="form-control" id="date"
-                                    placeholder="MM/DD/YYYY" />
+                                    placeholder="YYYY/MM/DD" />
                             </FormGroup>
 
                             <FormBtn text="Submit" onClick={this.billUpdate} classes="btn-primary"/>
