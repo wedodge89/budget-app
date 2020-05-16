@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./../../compCss/BillCard.css"
 let moment = require("moment");
 

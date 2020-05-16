@@ -5,7 +5,6 @@ import Col from "../components/Col/Col";
 import API from "../utils/API";
 import Card from "../components/BillCard/Card";
 import { withRouter } from "react-router-dom";
-import Jumbotron from "react-bootstrap/Jumbotron";
 import "../pageCss/MyBills.css";
 
 class Bills extends Component {
@@ -117,17 +116,17 @@ class Bills extends Component {
   render() {
     return (
       <Container >
-        <h1 class="headText">$ My Bills $</h1>
+        <h1 className="headText">$ My Bills $</h1>
         
         <Row >
           <Col size="sm-5">
-            <h3 class="paidBillHeader">My Paid Bills</h3>
+            <h3 className="paidBillHeader">My Paid Bills</h3>
           </Col>
           <Col size="sm-2">
 
           </Col>
           <Col size="sm-5">
-            <h3 class="unPaidBillHeader">My UnPaid Bills</h3>
+            <h3 className="unPaidBillHeader">My UnPaid Bills</h3>
           </Col>
         </Row>
         

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormGroup, Input, Label, Small, FormBtn } from "../components/Form/Form";
 import API from "../utils/API";
-// import "./style.css";
+import "../pageCss/Register.css";
 
 class Register extends Component {
   state = {
@@ -100,7 +100,7 @@ class Register extends Component {
   render() {
     return (
       <div className="container registerContainer">
-        <form>
+        <form id="register-form">
         <FormGroup>
           <Label text="First Name" />
           <Input

@@ -5,7 +5,7 @@ import Col from "../components/Col/Col";
 import API from "../utils/API";
 import {withRouter} from "react-router-dom";
 import {FormGroup, Input, Label, FormBtn} from "../components/Form/Form";
-let moment = require("moment");
+
 
 class Update extends Component {
     constructor(props) {
@@ -118,9 +118,11 @@ class Update extends Component {
 
                             <FormGroup>
                                 <Label text="Due Date" />
-                                <Input type="date"
+                                <input type="date"
                                     name="date"
+
                                     value={moment(this.state.date).format("YYYY/MM/DD")}
+
                                     onChange={this.handleInputChange}
                                     className="form-control" id="date"
                                     placeholder="YYYY/MM/DD" />
